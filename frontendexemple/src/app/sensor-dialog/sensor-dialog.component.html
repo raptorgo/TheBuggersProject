@@ -1,0 +1,102 @@
+<mat-accordion>
+  <mat-expansion-panel [expanded]=true>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Temperatura
+        <br>
+        ds
+        ds
+        ds
+        ds
+        ds
+        dsd
+        s<br>
+        dsdsds
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <div>
+        <mat-button-toggle-group #group="matButtonToggleGroup" [(ngModel)]="selected">
+          <mat-button-toggle value="Line Chart">Line Chart</mat-button-toggle>
+          <mat-button-toggle value="Bar Chart">Bar Chart</mat-button-toggle>
+          <mat-button-toggle value="Pie Chart">Pie Chart</mat-button-toggle>
+        </mat-button-toggle-group>
+    </div>
+
+    <!--placeholder="Favorite food"-->
+    <div>
+      <mat-form-field>
+        <mat-select  [(value)] = 'fSelected' [multiple]="true">
+          <mat-option value="Last Day">
+            Last Day
+          </mat-option>
+          <mat-option value="Last Week">
+            Last Week
+          </mat-option>
+          <mat-option value="Last Month">
+            Last Month
+          </mat-option>
+          <mat-option value="Last Year">
+            Last Year
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="example-selected-value">Selected value: {{group.value}}</div>
+
+    <div>
+      <!--style="display: block"-->
+      <canvas *ngIf="group.value == 'Bar Chart'" baseChart
+              [datasets]="barChartData"
+              [labels]="barChartLabels"
+              [options]="barChartOptions"
+              [legend]="barChartLegend"
+              [chartType]="barChartType"
+              (chartHover)="chartHovered($event)"
+              (chartClick)="chartClicked($event)"></canvas>
+    </div>
+    <div>
+      <canvas *ngIf="group.value == 'Line Chart'" baseChart width="400" height="400"
+              [datasets]="barChartData"
+              [labels]="lineChartLabels"
+              [options]="lineChartOptions"
+              [colors]="lineChartColors"
+              [legend]="lineChartLegend"
+              [chartType]="lineChartType"
+              (chartHover)="chartHovered($event)"
+              (chartClick)="chartClicked($event)"></canvas>
+    </div>
+    <div style="display: block">
+      <canvas  *ngIf="group.value == 'Pie Chart'" baseChart
+              [data]="pieChartData"
+              [labels]="pieChartLabels"
+              [options]="pieChartOptions"
+              [chartType]="pieChartType"
+              (chartHover)="chartHovered($event)"
+              (chartClick)="chartClicked($event)"></canvas>
+    </div>
+  </mat-expansion-panel>
+  <mat-expansion-panel (opened)="panelOpenState = true"
+                       (closed)="panelOpenState = false">
+  </mat-expansion-panel>
+
+  <mat-expansion-panel (opened)="true">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Temperatura
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <mat-form-field>
+      <input matInput placeholder="First name">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Age">
+    </mat-form-field>
+  </mat-expansion-panel>
+  <mat-expansion-panel (opened)="panelOpenState = true"
+                       (closed)="panelOpenState = false">
+  </mat-expansion-panel>
+</mat-accordion>

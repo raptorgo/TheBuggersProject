@@ -24,20 +24,26 @@ import {
   MatSlideToggleModule,
   MatGridListModule,
   MatTabsModule,
-  MatToolbarModule
+  MatToolbarModule, MatButtonToggle, MatButtonToggleModule, MatButtonToggleGroup, MatAccordion
 } from '@angular/material';
 
 import 'hammerjs';
 import { DialogExempleComponent } from './dialog-exemple/dialog-exemple.component';
-
+import { SensorDialogComponent } from './sensor-dialog/sensor-dialog.component';
+import {MatExpansionModule} from '@angular/material/expansion';
+import { ChartsModule } from 'ng2-charts/ng2-charts';
+import { InfoDialogComponent } from './info-dialog/info-dialog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DialogComponent,
     DialogExempleComponent,
+    SensorDialogComponent,
+    InfoDialogComponent,
   ],
   imports: [
+    ChartsModule,
     BrowserModule,
     FormsModule,
     HttpClientModule,
@@ -59,7 +65,9 @@ import { DialogExempleComponent } from './dialog-exemple/dialog-exemple.componen
     MatToolbarModule,
     MatGridListModule,
     // Flex-layout
-    FlexLayoutModule
+    FlexLayoutModule,
+    MatButtonToggleModule,
+    MatExpansionModule
   ],
   providers: [],
   entryComponents: [DialogComponent, DialogExempleComponent],

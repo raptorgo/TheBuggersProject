@@ -195,7 +195,8 @@ export class AppComponent {
   }
   openDialog(): void {
     this.dialog.open(DialogExempleComponent, {
-      width: '400px',
+      width: '99%',
+      height: '90%'
     }).afterClosed();
 
   }

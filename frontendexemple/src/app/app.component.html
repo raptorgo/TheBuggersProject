@@ -198,30 +198,41 @@
         </mat-card>
 
       </div>
+      <!--<div fxLayout="row" fxLayout.xs="column" class="marginContainerCard">-->
+        <!--<mat-button-toggle-group>-->
+          <!--<mat-button-toggle value="sensori" (click)="sensorView = true; infoView = false; segnalView = false">Sensori</mat-button-toggle>-->
+          <!--<mat-button-toggle value="info" (click)="infoView = true; segnalView; sensorView = false">Info</mat-button-toggle>-->
+          <!--<mat-button-toggle value="segnala" (click)="segnalView = true; sensorView = false; infoView = false">Segnala</mat-button-toggle>-->
+        <!--</mat-button-toggle-group>-->
+        <!--<div *ngIf="sensorView"> Sensoriiiiiii</div>-->
+        <!--<div *ngIf="infoView"> Informazioni</div>-->
+        <!--<div *ngIf="segnalView"> Segnaliiiii</div>-->
+      <!--</div>-->
+
     </div>
   </mat-sidenav-container>
 
 
-  <button mat-fab (click)="openAdminDialog()" class="fab-bottom-right">
-  <mat-icon>add</mat-icon>
-  </button>
+  <!--<button mat-fab (click)="openAdminDialog()" class="fab-bottom-right">-->
+  <!--<mat-icon>add</mat-icon>-->
+  <!--</button>-->
 
   <footer>
-    <mat-toolbar color='primary'>
-      <span></span>
-      <h3>© Copyright</h3>
-      <span fxFlex></span>
+  <mat-toolbar color='primary'>
+    <span></span>
+    <h3>© Copyright</h3>
+    <span fxFlex></span>
 
-      <button mat-icon-button [matMenuTriggerFor]="themeMenu">
-        <mat-icon>more_vert</mat-icon>
-      </button>
+    <button mat-icon-button [matMenuTriggerFor]="themeMenu">
+      <mat-icon>more_vert</mat-icon>
+    </button>
 
-      <mat-menu #themeMenu x-position="before">
-        <button mat-menu-item (click)="isDarkTheme = !isDarkTheme">Toggle Theme</button>
-      </mat-menu>
+    <mat-menu #themeMenu x-position="before">
+      <button mat-menu-item (click)="isDarkTheme = !isDarkTheme">Toggle Theme</button>
+    </mat-menu>
 
-    </mat-toolbar>
-  </footer>
+  </mat-toolbar>
+</footer>
 
 </div>
 

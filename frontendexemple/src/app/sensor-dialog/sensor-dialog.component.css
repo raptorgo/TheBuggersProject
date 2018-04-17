@@ -1,0 +1,10 @@
+@media only screen and (min-width: 400px) {
+  .chartjs-render-monitor {
+    height: 400px !important;
+  }
+}
+@media only screen and (max-width: 400px) {
+  .chartjs-render-monitor{
+    height: 250px !important;
+  }
+}
