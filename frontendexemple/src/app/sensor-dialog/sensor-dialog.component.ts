@@ -13,7 +13,8 @@ export class SensorDialogComponent implements OnInit {
     maintainAspectRatio: false,
     responsive: true
   };
-  public barChartLabels: string[] = ['2006', '2007', '2008', '2009', '2010', '2011', '2012'];
+  // ['2006', '2007', '2008', '2009', '2010', '2011', '2012'];/
+  public barChartLabels: string[] = ['esigneza', 'info', 'acquisto', 'attesa', 'fruizione', 'post'];
   public barChartType: string = 'bar';
   public barChartLegend: boolean = true;
   public chartClicked(e: any): void {
@@ -25,11 +26,13 @@ export class SensorDialogComponent implements OnInit {
   }
 
   public barChartData: any[] = [
-    {data: [65, 59, 80, 81, 56, 55, 40], label: 'Series A'},
-    {data: [28, 48, 40, 19, 86, 27, 90], label: 'Series B'}
+    // {data: [65, 59, 80, 81, 56, 55, 40], label: 'Series A'},
+    // {data: [28, 48, 40, 19, 86, 27, 90], label: 'Series B'}
+    {data: [0, 2, -2, 4, 3,  10, 8, -5, 5, 15, -15, 0], label: 'Series B'}
   ];
   //line chart
-  public lineChartLabels: Array<any> = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+  // ['January', 'February', 'March', 'April', 'May', 'June', 'July']
+  public lineChartLabels: Array<any> = ['', 'esigenza', '', 'info', '', 'acquisto', '', 'attesa', '', 'fruizione', '', 'post'];
   public lineChartOptions:any = {
     scaleShowVerticalLines: false,
     maintainAspectRatio: false,

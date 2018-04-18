@@ -1,18 +1,21 @@
-<div style="margin-top: 2%; margin-left: 2%">
+<div style="margin-top: 2%; margin-left: 2%; margin-right: 2%">
   <div *ngIf="!modifyB">
-    <h1>{{object}}</h1>
-    <label>{{description}}</label>
-    <button mat-button color="primary" (click)="toggle()">Modifica</button>
+    <div fxLayout="row">
+      <h1 fxFlex="20%" fxFlex.xs="80%">{{object}}</h1>
+      <button fxFlex="5%" fxFlex.xs="20%" mat-button (click)="toggle()"><i class="material-icons">create</i></button>
+    </div>
+    <label fxLayout="row">{{description}}</label>
   </div>
 
   <div *ngIf="modifyB">
     <div>
-      <mat-form-field style="width: 500px">
+      <!--style="width: 45%"-->
+      <mat-form-field fxFlex="100%">
         <input matInput placeholder="Object" [(ngModel)]="objectB">
       </mat-form-field>
     </div>
     <div>
-      <mat-form-field style="width: 500px">
+      <mat-form-field fxFlex="100%">
         <textarea matInput placeholder="Description" [(ngModel)]="descriptionB"></textarea>
       </mat-form-field>
     </div>

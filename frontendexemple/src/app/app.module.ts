@@ -33,6 +33,7 @@ import { SensorDialogComponent } from './sensor-dialog/sensor-dialog.component';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
 import { InfoDialogComponent } from './info-dialog/info-dialog.component';
+import { ReportComponent } from './report/report.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { InfoDialogComponent } from './info-dialog/info-dialog.component';
     DialogExempleComponent,
     SensorDialogComponent,
     InfoDialogComponent,
+    ReportComponent,
   ],
   imports: [
     ChartsModule,
