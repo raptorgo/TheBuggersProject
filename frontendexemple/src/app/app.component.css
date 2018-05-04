@@ -73,10 +73,13 @@ mat-sidenav {
   background: #555;
 }
 
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 600px) {
   /*#sidenav{*/
     /*display: none;*/
   /*}*/
+  .cdk-overlay-pane{
+    max-width: 100vw !important;
+  }
   #buttonProfile{
     display: none;
   }
@@ -91,7 +94,7 @@ mat-sidenav {
     margin-top: 0% !important;
   }
 }
-@media only screen and (min-width: 400px) {
+@media only screen and (min-width: 600px) {
   #buttonProfileMobile{
     display: none;
   }

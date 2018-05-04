@@ -1,226 +1,69 @@
 <div fxLayout="column" fxFlex [class.dark-theme]="isDarkTheme">
-    <mat-toolbar color="primary">
+  <mat-toolbar color="primary">
 
-      <mat-toolbar-row>
-        <button mat-icon-button (click)="sidenav.toggle()">
-          <!--fxHide="false" fxHide.gt-sm-->
-          <mat-icon>menu</mat-icon>
-        </button>
-        <span>Angular Material</span>
-
-        <!-- Filler that pushes the menu button to the end of the toolbar -->
-        <span fxFlex></span>
-        <button mat-mini-fab color="primary" [matMenuTriggerFor]="profileMenu" id="buttonProfile">
-          <i class="material-icons">settings</i>
-        </button>
-      </mat-toolbar-row>
-    </mat-toolbar>
-
-
-    <mat-sidenav-container fxFlex>
-
-      <mat-sidenav id="sidenav" mode="side" #sidenav opened (swipeleft)="sidenav.close()" (swiperight)="sidenav.open()">
-
-        <mat-card>
-          <div>
-            <h2>{{selectedUser.name}}</h2>
-            <span fxFlex="40%;"></span>
-            <button mat-mini-fab color="primary" [matMenuTriggerFor]="profileMenu" id="buttonProfileMobile">
-              <i class="material-icons">settings</i>
-            </button>
-          </div>
-          <!--<mat-icon svgIcon="avatars:{{selectedUser.avatar}}" class="avatar"></mat-icon>-->
-          <p>{{selectedUser.details}}</p>
-        </mat-card>
-        <mat-nav-list style="height: 100%">
-
-
-          <mat-list-item *ngFor="let user of users" (click)="selectedUser = user">
-            <mat-icon matListAvatar svgIcon="avatars:{{user.avatar}}" class="avatar"></mat-icon>
-            <span>{{user.name}}</span>
-          </mat-list-item>
-        </mat-nav-list>
-      </mat-sidenav>
-      <div (swipeleft)="sidenav.close()" (swiperight)="sidenav.open()">
-
-
-        <div fxLayout="row" fxLayout.xs="column" class="marginContainerCard">
-
-          <mat-card fxFlex="40%;" fxFlex.xs="80%" class="marginCard">
-            <mat-card-content>
-              <button mat-button (click)="openDialog()"><h2>Left Card 1</h2></button>
-            </mat-card-content>
-          </mat-card>
-
-          <mat-card fxFlex="40%;" fxFlex.xs="80%" class="marginCard">
-            <mat-card-content>
-              <h2>Left Card 2</h2>
-            </mat-card-content>
-          </mat-card>
-
-          <mat-card fxFlex="40%;" fxFlex.xs="80%" class="marginCard">
-            <mat-card-content>
-              <h2>Right Column </h2>
-            </mat-card-content>
-          </mat-card>
-
-        </div>
-
-        <div fxLayout="row" fxLayout.xs="column" class="marginContainerCard">
-
-          <mat-card fxFlex="40%;" fxFlex.xs="80%" class="marginCard">
-            <mat-card-content>
-              <h2>Left Card 1</h2>
-            </mat-card-content>
-          </mat-card>
-
-          <mat-card fxFlex="40%;" fxFlex.xs="80%" class="marginCard">
-            <mat-card-content>
-              <h2>Left Card 2</h2>
-            </mat-card-content>
-          </mat-card>
-
-          <mat-card fxFlex="40%;" fxFlex.xs="80%" class="marginCard">
-            <mat-card-content>
-              <h2>Right Column </h2>
-            </mat-card-content>
-          </mat-card>
-
-        </div>
-
-        <div fxLayout="row" fxLayout.xs="column" class="marginContainerCard">
-
-          <mat-card fxFlex="40%;" fxFlex.xs="80%" class="marginCard">
-            <mat-card-content>
-              <h2>Left Card 1</h2>
-            </mat-card-content>
-          </mat-card>
-
-          <mat-card fxFlex="40%;" fxFlex.xs="80%" class="marginCard">
-            <mat-card-content>
-              <h2>Left Card 2</h2>
-            </mat-card-content>
-          </mat-card>
-
-          <mat-card fxFlex="40%;" fxFlex.xs="80%" class="marginCard">
-            <mat-card-content>
-              <h2>Right Column </h2>
-            </mat-card-content>
-          </mat-card>
-
-        </div>
-
-        <div fxLayout="row" fxLayout.xs="column" class="marginContainerCard">
-
-          <mat-card fxFlex="40%;" fxFlex.xs="80%" class="marginCard">
-            <mat-card-content>
-              <h2>Left Card 1</h2>
-            </mat-card-content>
-          </mat-card>
-
-          <mat-card fxFlex="40%;" fxFlex.xs="80%" class="marginCard">
-            <mat-card-content>
-              <h2>Left Card 2</h2>
-            </mat-card-content>
-          </mat-card>
-
-          <mat-card fxFlex="40%;" fxFlex.xs="80%" class="marginCard">
-            <mat-card-content>
-              <h2>Right Column </h2>
-            </mat-card-content>
-          </mat-card>
-
-        </div>
-
-        <div fxLayout="row" fxLayout.xs="column" class="marginContainerCard">
-
-          <mat-card fxFlex="40%;" fxFlex.xs="80%" class="marginCard">
-            <mat-card-content>
-              <h2>Left Card 1</h2>
-            </mat-card-content>
-          </mat-card>
-
-          <mat-card fxFlex="40%;" fxFlex.xs="80%" class="marginCard">
-            <mat-card-content>
-              <h2>Left Card 2</h2>
-            </mat-card-content>
-          </mat-card>
-
-          <mat-card fxFlex="40%;" fxFlex.xs="80%" class="marginCard">
-            <mat-card-content>
-              <h2>Right Column </h2>
-            </mat-card-content>
-          </mat-card>
-
-        </div>
-
-        <div fxLayout="row" fxLayout.xs="column" class="marginContainerCard">
-
-          <mat-card fxFlex="40%;" fxFlex.xs="80%" class="marginCard">
-            <mat-card-content>
-              <h2>Left Card 1</h2>
-            </mat-card-content>
-          </mat-card>
-
-          <mat-card fxFlex="40%;" fxFlex.xs="80%" class="marginCard">
-            <mat-card-content>
-              <h2>Left Card 2</h2>
-            </mat-card-content>
-          </mat-card>
-
-          <mat-card fxFlex="40%;" fxFlex.xs="80%" class="marginCard">
-            <mat-card-content>
-              <h2>Right Column </h2>
-            </mat-card-content>
-          </mat-card>
-
-        </div>
-
-        <div fxLayout="row" fxLayout.xs="column" class="marginContainerCard">
-
-          <mat-card fxFlex="40%;" fxFlex.xs="80%" class="marginCard">
-            <mat-card-content>
-              <h2>Left Card 1</h2>
-            </mat-card-content>
-          </mat-card>
-
-          <mat-card fxFlex="40%;" fxFlex.xs="80%" class="marginCard">
-            <mat-card-content>
-              <h2>Left Card 2</h2>
-            </mat-card-content>
-          </mat-card>
-
-          <mat-card fxFlex="40%;" fxFlex.xs="80%" class="marginCard">
-            <mat-card-content>
-              <h2>Right Column </h2>
-            </mat-card-content>
-          </mat-card>
-
-        </div>
-      </div>
-    </mat-sidenav-container>
-
-
-    <!--<button mat-fab (click)="openAdminDialog()" class="fab-bottom-right">-->
-    <!--<mat-icon>add</mat-icon>-->
-    <!--</button>-->
-
-  <footer>
-    <mat-toolbar color='primary'>
-      <span></span>
-      <h3>© Copyright</h3>
-      <span fxFlex></span>
-
-      <button mat-icon-button [matMenuTriggerFor]="themeMenu">
-        <mat-icon>more_vert</mat-icon>
+    <mat-toolbar-row>
+      <button mat-icon-button (click)="sidenav.toggle()">
+        <!--fxHide="false" fxHide.gt-sm-->
+        <mat-icon>menu</mat-icon>
       </button>
+      <span routerLink="./" style="outline: none; cursor: pointer">The Bugger</span>
+      <!-- Filler that pushes the menu button to the end of the toolbar -->
+      <span fxFlex></span>
+      <button mat-mini-fab color="primary" [matMenuTriggerFor]="profileMenu" id="buttonProfile">
+        <i class="material-icons">settings</i>
+      </button>
+    </mat-toolbar-row>
+  </mat-toolbar>
 
-      <mat-menu #themeMenu x-position="before">
-        <button mat-menu-item (click)="isDarkTheme = !isDarkTheme">Toggle Theme</button>
-      </mat-menu>
 
-    </mat-toolbar>
-  </footer>
+  <mat-sidenav-container fxFlex  (swipeleft)="sidenav.close()" (swiperight)="sidenav.open()">
+
+    <mat-sidenav id="sidenav" mode="side" #sidenav opened (swipeleft)="sidenav.close()" (swiperight)="sidenav.open()">
+
+      <mat-card>
+        <div>
+          <h2>{{selectedUser.name}}</h2>
+          <span fxFlex="40%;"></span>
+          <button mat-mini-fab color="primary" [matMenuTriggerFor]="profileMenu" id="buttonProfileMobile">
+            <i class="material-icons">settings</i>
+          </button>
+        </div>
+        <!--<mat-icon svgIcon="avatars:{{selectedUser.avatar}}" class="avatar"></mat-icon>-->
+        <p>{{selectedUser.details}}</p>
+      </mat-card>
+      <mat-nav-list style="height: 100%">
+
+
+        <mat-list-item *ngFor="let user of users" (click)="selectedUser = user">
+          <mat-icon matListAvatar svgIcon="avatars:{{user.avatar}}" class="avatar"></mat-icon>
+          <span>{{user.name}}</span>
+        </mat-list-item>
+      </mat-nav-list>
+    </mat-sidenav>
+    <div>
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-container>
+
+
+  <!--Footerrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr-->
+
+  <!--<footer>-->
+    <!--<mat-toolbar color='primary'>-->
+      <!--<span></span>-->
+      <!--<h3>© Copyright</h3>-->
+      <!--<span fxFlex></span>-->
+
+      <!--<button mat-icon-button [matMenuTriggerFor]="themeMenu">-->
+        <!--<mat-icon>more_vert</mat-icon>-->
+      <!--</button>-->
+
+      <!--<mat-menu #themeMenu x-position="before">-->
+        <!--<button mat-menu-item (click)="isDarkTheme = !isDarkTheme">Toggle Theme</button>-->
+      <!--</mat-menu>-->
+
+    <!--</mat-toolbar>-->
+  <!--</footer>-->
 
 </div>
 
@@ -228,8 +71,8 @@
   <mat-menu #profileMenu="matMenu" id="ic" yPosition="above" [overlapTrigger]="false">
     <mat-icon svgIcon="avatars:{{selectedUser.avatar}}" class="avatarTop"></mat-icon>
     <hr>
-    <button mat-menu-item>Modifica Profilo</button>
+    <button mat-menu-item routerLink="/triggers">Triggers</button>
+    <button mat-menu-item routerLink="/user/modifica-profilo" (click)="sidenav.close()">Modifica Profilo</button>
     <button mat-menu-item>Esci</button>
   </mat-menu>
 </div>
-
