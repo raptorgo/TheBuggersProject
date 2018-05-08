@@ -1,40 +1,18 @@
-<div *ngFor="let s of users; let asd = index" style="margin-bottom: 2%; margin-top: 2%">
-  <div *ngIf="check(asd)" fxLayout="row" fxLayout.xs="column" class="marginContainerCard">
-    <mat-card fxFlex="31%;" fxFlex.xs="80%" class="marginCard">
-      <mat-card-content>
-        <button mat-button (click)="openDialog()"><h2>Left Card 1</h2></button>
-        <!--<div>-->
-          <!--{{users[asd].avatar}}-->
-        <!--</div>-->
-        <!--<div>-->
-          <!--{{users[asd].name}}-->
-        <!--</div>-->
-      </mat-card-content>
-    </mat-card>
+<div>
+  <span></span>
+  <span fxFlex></span>
+  <button mat-button class="orderButton" (click)="toggle()">Sort <mat-icon>sort</mat-icon></button>
+</div>
 
-    <mat-card *ngIf="checkO(asd)" fxFlex="31%" fxFlex.xs="80%" class="marginCard">
+<div [ngClass]="{'sortEnable':sort==true}" [sortablejs]="users" [sortablejsOptions]="getSortableOptions()" fxLayout="row" fxLayout.xs="column" fxLayoutWrap="wrap" class="marginContainerCard">
+  <div fxFlex.gt-xs="100%" fxFlex.xs="100%" [fxFlex.gt-md]="100/3" [fxFlex.gt-sm]="100/2"*ngFor="let s of users; let asd = index">
+    <mat-card fxFlex.xs="100%" class="marginCard" [ngClass]="{'sortEnableCard':sort==true}" (click)="openDialog(s)">
       <mat-card-content>
-        <button mat-button (click)="openDialog()"><h2>Left Card 1</h2></button>
-        <!--<div>-->
-          <!--{{users[increment(asd)].avatar}}-->
-        <!--</div>-->
-        <!--<div>-->
-          <!--{{users[increment(asd)].name}}-->
-        <!--</div>-->
-      </mat-card-content>
-    </mat-card>
-
-    <mat-card *ngIf="checkO(asd + 1)" fxFlex="31%" fxFlex.xs="80%" class="marginCard">
-      <mat-card-content>
-        <button mat-button (click)="openDialog()"><h2>Left Card 1</h2></button>
-        <!--<div>-->
-          <!--{{users[increment(asd +1)].avatar}}-->
-        <!--</div>-->
-        <!--<div>-->
-          <!--{{users[increment(asd +1)].name}}-->
-        <!--</div>-->
+        {{s.avatar}}
+        <br>
+        {{s.name}}
       </mat-card-content>
     </mat-card>
   </div>
 </div>
-
+<!--sort === true ? sortEnable : sortDisable-->

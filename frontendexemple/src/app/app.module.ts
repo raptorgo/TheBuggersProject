@@ -39,6 +39,7 @@ import {
 import {ModifyProfileComponent} from './modify-profile/modify-profile.component';
 import {DashboardComponent} from './dashboard/dashboard.component';
 import { AdminComponent } from './admin/admin.component';
+import {SortablejsModule} from 'angular-sortablejs';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: 'user', pathMatch: 'prefix' },
@@ -92,7 +93,9 @@ const appRoutes: Routes = [
     // Flex-layout
     FlexLayoutModule,
     MatButtonToggleModule,
-    MatExpansionModule
+    MatExpansionModule,
+    SortablejsModule.forRoot({ animation: 500 }),
+    SortablejsModule
   ],
   providers: [],
   entryComponents: [DialogComponent, DialogExempleComponent],

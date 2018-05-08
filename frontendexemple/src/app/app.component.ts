@@ -177,12 +177,32 @@ export class AppComponent {
 
   selectedUser = this.users[0];
   isDarkTheme = false;
+  isCostumazies = false;
+  sort = false;
 
   constructor(iconRegistry: MatIconRegistry, sanitizer: DomSanitizer, private dialog: MatDialog) {
     // To avoid XSS attacks, the URL needs to be trusted from inside of your application.
     const avatarsSafeUrl = sanitizer.bypassSecurityTrustResourceUrl('./assets/avatars.svg');
 
     iconRegistry.addSvgIconSetInNamespace('avatars', avatarsSafeUrl);
+  }
+  themeColor;
+  setColor(color) {
+    this.themeColor = color;
+  }
+  toggle() {
+    if(this.isCostumazies) {
+      this.isCostumazies = false;
+    } else {
+      this.isCostumazies = true;
+    }
+  }
+  toggleSort() {
+    if(this.sort) {
+      this.sort = false;
+    } else {
+      this.sort = true;
+    }
   }
   openAdminDialog() {
     this.dialog.open(DialogComponent).afterClosed()

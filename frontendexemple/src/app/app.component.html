@@ -1,4 +1,4 @@
-<div fxLayout="column" fxFlex [class.dark-theme]="isDarkTheme">
+<div fxLayout="column" fxFlex [class.dark-theme]="isDarkTheme" [ngClass]="{'yellowTheme':themeColor=='yellow'}" >
   <mat-toolbar color="primary">
 
     <mat-toolbar-row>
@@ -8,7 +8,15 @@
       </button>
       <span routerLink="./" style="outline: none; cursor: pointer">The Bugger</span>
       <!-- Filler that pushes the menu button to the end of the toolbar -->
-      <span fxFlex></span>
+      <span fxFlex style="text-align: center">
+        <div class="button-row">
+          <button mat-fab (click)="setColor('red')">Basic</button>
+          <button mat-fab (click)="setColor('yellow')" color="primary">Primary</button>
+          <button mat-fab color="accent">Accent</button>
+          <button mat-fab color="warn">Warn</button>
+          <button mat-fab disabled>Disabled</button>
+        </div>
+      </span>
       <button mat-mini-fab color="primary" [matMenuTriggerFor]="profileMenu" id="buttonProfile">
         <i class="material-icons">settings</i>
       </button>
@@ -16,7 +24,7 @@
   </mat-toolbar>
 
 
-  <mat-sidenav-container fxFlex  (swipeleft)="sidenav.close()" (swiperight)="sidenav.open()">
+  <mat-sidenav-container fxFlex (swipeleft)="sidenav.close()" (swiperight)="sidenav.open()">
 
     <mat-sidenav id="sidenav" mode="side" #sidenav opened (swipeleft)="sidenav.close()" (swiperight)="sidenav.open()">
 
@@ -40,7 +48,13 @@
         </mat-list-item>
       </mat-nav-list>
     </mat-sidenav>
-    <div>
+    <div fxLayout="column">
+      <mat-card *ngIf="isCostumazies" fxFlex="100%">
+        <mat-card-content>
+          <button (click)="toggleSort()">Sort</button>
+          Costumazies
+        </mat-card-content>
+      </mat-card>
       <router-outlet></router-outlet>
     </div>
   </mat-sidenav-container>
@@ -48,22 +62,22 @@
 
   <!--Footerrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr-->
 
-  <!--<footer>-->
-    <!--<mat-toolbar color='primary'>-->
-      <!--<span></span>-->
-      <!--<h3>© Copyright</h3>-->
-      <!--<span fxFlex></span>-->
+  <footer>
+    <mat-toolbar color='primary'>
+      <span></span>
+      <h3>© Copyright</h3>
+      <span fxFlex></span>
 
-      <!--<button mat-icon-button [matMenuTriggerFor]="themeMenu">-->
-        <!--<mat-icon>more_vert</mat-icon>-->
-      <!--</button>-->
+      <button mat-icon-button [matMenuTriggerFor]="themeMenu">
+        <mat-icon>more_vert</mat-icon>
+      </button>
 
-      <!--<mat-menu #themeMenu x-position="before">-->
-        <!--<button mat-menu-item (click)="isDarkTheme = !isDarkTheme">Toggle Theme</button>-->
-      <!--</mat-menu>-->
+      <mat-menu #themeMenu x-position="before">
+        <button mat-menu-item (click)="isDarkTheme = !isDarkTheme">Toggle Theme</button>
+      </mat-menu>
 
-    <!--</mat-toolbar>-->
-  <!--</footer>-->
+    </mat-toolbar>
+  </footer>
 
 </div>
 
@@ -71,6 +85,7 @@
   <mat-menu #profileMenu="matMenu" id="ic" yPosition="above" [overlapTrigger]="false">
     <mat-icon svgIcon="avatars:{{selectedUser.avatar}}" class="avatarTop"></mat-icon>
     <hr>
+    <button mat-menu-item (click)="toggle()">Personalizza</button>
     <button mat-menu-item routerLink="/triggers">Triggers</button>
     <button mat-menu-item routerLink="/user/modifica-profilo" (click)="sidenav.close()">Modifica Profilo</button>
     <button mat-menu-item>Esci</button>
