@@ -109,7 +109,21 @@ mat-sidenav {
   }
 }
 
+.darkBtn{
+  color: black !important;
+  background-color: white !important;
+}
 
-.yellowTheme: mat-toolbar{
+.yellow{
   background-color: yellow;
 }
+.green{
+  background-color: green;
+}
+.blue{
+  background-color: blue;
+}
+.dark{
+  background-color: #03a9f4;
+}
+/*: mat-toolbar*/

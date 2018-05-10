@@ -187,11 +187,24 @@ export class AppComponent {
     iconRegistry.addSvgIconSetInNamespace('avatars', avatarsSafeUrl);
   }
   themeColor;
+  backupThemeColor;
   setColor(color) {
-    this.themeColor = color;
+    if (color === 'dark' && this.isDarkTheme) {
+      this.themeColor = '';
+    } else if (color === 'dark') {
+      this.themeColor = this.backupThemeColor;
+    } else {
+      this.backupThemeColor = color;
+      this.themeColor = color;
+    }
+  }
+  checkColor () {
+    if (this.isDarkTheme) {
+
+    }
   }
   toggle() {
-    if(this.isCostumazies) {
+    if (this.isCostumazies) {
       this.isCostumazies = false;
     } else {
       this.isCostumazies = true;
@@ -217,6 +230,12 @@ export class AppComponent {
       width: '99%',
       height: '90%'
     }).afterClosed();
+  }
 
+  checkClass(): string {
+    if (!this.isDarkTheme) {
+      return "darkBtn";
+    }
+    return "nDarkBtn";
   }
 }

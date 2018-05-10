@@ -1,7 +1,7 @@
-<div fxLayout="column" fxFlex [class.dark-theme]="isDarkTheme" [ngClass]="{'yellowTheme':themeColor=='yellow'}" >
+<div fxLayout="column" fxFlex [class.dark-theme]="isDarkTheme">
   <mat-toolbar color="primary">
 
-    <mat-toolbar-row>
+    <mat-toolbar-row [ngClass]="themeColor">
       <button mat-icon-button (click)="sidenav.toggle()">
         <!--fxHide="false" fxHide.gt-sm-->
         <mat-icon>menu</mat-icon>
@@ -9,12 +9,16 @@
       <span routerLink="./" style="outline: none; cursor: pointer">The Bugger</span>
       <!-- Filler that pushes the menu button to the end of the toolbar -->
       <span fxFlex style="text-align: center">
-        <div class="button-row">
-          <button mat-fab (click)="setColor('red')">Basic</button>
-          <button mat-fab (click)="setColor('yellow')" color="primary">Primary</button>
-          <button mat-fab color="accent">Accent</button>
-          <button mat-fab color="warn">Warn</button>
-          <button mat-fab disabled>Disabled</button>
+        <div class="button-row" *ngIf="isCostumazies">
+          <button mat-mini-fab (click)="setColor('red')" style="background-color: red" [disabled]="isDarkTheme"></button>
+          <button mat-mini-fab (click)="setColor('blue')" style="background-color: blue" [disabled]="isDarkTheme"></button>
+          <button mat-mini-fab (click)="setColor('yellow')" style="background-color: yellow" [disabled]="isDarkTheme"></button>
+          <button mat-mini-fab (click)="setColor('green')" style="background-color: green" [disabled]="isDarkTheme"></button>
+          <button mat-mini-fab (click)="isDarkTheme = !isDarkTheme" (click)="setColor('dark')" class="darkBtn">
+            <i *ngIf="!isDarkTheme" class="material-icons">brightness_2</i>
+            <i *ngIf="isDarkTheme" class="material-icons">wb_sunny</i>
+          </button>
+          <button mat-button (click)="toggle()"><i class="material-icons">close</i></button>
         </div>
       </span>
       <button mat-mini-fab color="primary" [matMenuTriggerFor]="profileMenu" id="buttonProfile">
@@ -22,7 +26,6 @@
       </button>
     </mat-toolbar-row>
   </mat-toolbar>
-
 
   <mat-sidenav-container fxFlex (swipeleft)="sidenav.close()" (swiperight)="sidenav.open()">
 
@@ -49,13 +52,7 @@
       </mat-nav-list>
     </mat-sidenav>
     <div fxLayout="column">
-      <mat-card *ngIf="isCostumazies" fxFlex="100%">
-        <mat-card-content>
-          <button (click)="toggleSort()">Sort</button>
-          Costumazies
-        </mat-card-content>
-      </mat-card>
-      <router-outlet></router-outlet>
+      <router-outlet (swipeleft)="sidenav.close()" (swiperight)="sidenav.open()"></router-outlet>
     </div>
   </mat-sidenav-container>
 
@@ -64,21 +61,21 @@
 
   <footer>
     <mat-toolbar color='primary'>
-      <span></span>
-      <h3>© Copyright</h3>
-      <span fxFlex></span>
+      <mat-toolbar-row [ngClass]="themeColor">
+        <span></span>
+        <h3>© Copyright</h3>
+        <span fxFlex></span>
 
-      <button mat-icon-button [matMenuTriggerFor]="themeMenu">
-        <mat-icon>more_vert</mat-icon>
-      </button>
+        <button mat-icon-button [matMenuTriggerFor]="themeMenu">
+          <mat-icon>more_vert</mat-icon>
+        </button>
 
-      <mat-menu #themeMenu x-position="before">
-        <button mat-menu-item (click)="isDarkTheme = !isDarkTheme">Toggle Theme</button>
-      </mat-menu>
-
+        <mat-menu #themeMenu x-position="before">
+          <button mat-menu-item (click)="isDarkTheme = !isDarkTheme">Toggle Theme</button>
+        </mat-menu>
+      </mat-toolbar-row>
     </mat-toolbar>
   </footer>
-
 </div>
 
 <div>

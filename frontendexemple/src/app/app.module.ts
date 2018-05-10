@@ -47,6 +47,21 @@ const appRoutes: Routes = [
   {path: 'user/modifica-profilo', component: ModifyProfileComponent},
   {path: 'admin', component: AdminComponent}
 ];
+import {
+  HammerGestureConfig,
+  HAMMER_GESTURE_CONFIG,
+} from '@angular/platform-browser';
+
+export class MyHammerConfig extends HammerGestureConfig  {
+  // buildHammer(element: HTMLElement) {
+  //   let mc = new Hammer(element, {
+  //     touchAction: "pan-y"
+  //     // touchAction: "auto",
+  //   });
+  //   // mc.get('swipe').set({direction :  Hammer.DIRECTION_ALL});
+  //   return mc;
+  // }
+}
 
 @NgModule({
   declarations: [
@@ -97,7 +112,12 @@ const appRoutes: Routes = [
     SortablejsModule.forRoot({ animation: 500 }),
     SortablejsModule
   ],
-  providers: [],
+  providers: [
+  //   {
+  //   provide: HAMMER_GESTURE_CONFIG,
+  //   useClass: MyHammerConfig,
+  // }
+  ],
   entryComponents: [DialogComponent, DialogExempleComponent],
   bootstrap: [AppComponent]
 })
