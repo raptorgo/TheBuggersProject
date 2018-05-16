@@ -1,10 +1,10 @@
-<div (swipeleft)="sidenav.close()" (swiperight)="sidenav.open()">
+<div>
   <span></span>
   <span fxFlex></span>
   <button mat-button class="orderButton" (click)="toggle()">Sort <mat-icon>sort</mat-icon></button>
 </div>
 
-<div (swipeleft)="sidenav.close()" (swiperight)="sidenav.open()" [ngClass]="{'sortEnable':sort==true}" [sortablejs]="users" [sortablejsOptions]="getSortableOptions()" fxLayout="row" fxLayout.xs="column" fxLayoutWrap="wrap" class="marginContainerCard">
+<div [ngClass]="{'sortEnable':sort==true}" [sortablejs]="users" [sortablejsOptions]="getSortableOptions()" fxLayout="row" fxLayout.xs="column" fxLayoutWrap="wrap" class="marginContainerCard">
   <div fxFlex.gt-xs="100%" fxFlex.xs="100%" [fxFlex.gt-md]="100/3" [fxFlex.gt-sm]="100/2"*ngFor="let s of users; let asd = index">
     <mat-card fxFlex.xs="100%" class="marginCard" [ngClass]="{'sortEnableCard':sort==true}" (click)="openDialog(s)">
       <mat-card-content>

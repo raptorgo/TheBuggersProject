@@ -93,6 +93,16 @@ mat-sidenav {
     margin-right: 2%;
     margin-top: 0% !important;
   }
+  #desktopSettings{
+    display: none !important;
+  }
+  #mobileSettings{
+    text-align: center !important;
+    padding-bottom: 2% !important;
+    padding-top: 2% !important;
+    margin-left: 5% !important;
+    margin-right: 10% !important;
+  }
 }
 @media only screen and (min-width: 600px) {
   #buttonProfileMobile{
@@ -107,7 +117,11 @@ mat-sidenav {
     margin-right: 2%;
     margin-top: 2%;
   }
+  #mobileSettings{
+    display: none !important;
+  }
 }
+
 
 .darkBtn{
   color: black !important;

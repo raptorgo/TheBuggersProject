@@ -177,6 +177,7 @@ export class AppComponent {
 
   selectedUser = this.users[0];
   isDarkTheme = false;
+  isCandyTheme = false;
   isCostumazies = false;
   sort = false;
 

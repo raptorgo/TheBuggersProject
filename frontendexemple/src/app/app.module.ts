@@ -53,14 +53,14 @@ import {
 } from '@angular/platform-browser';
 
 export class MyHammerConfig extends HammerGestureConfig  {
-  // buildHammer(element: HTMLElement) {
-  //   let mc = new Hammer(element, {
-  //     touchAction: "pan-y"
-  //     // touchAction: "auto",
-  //   });
-  //   // mc.get('swipe').set({direction :  Hammer.DIRECTION_ALL});
-  //   return mc;
-  // }
+  buildHammer(element: HTMLElement) {
+    let mc = new Hammer(element, {
+      touchAction: "pan-y"
+      // touchAction: "auto",
+    });
+    // mc.get('swipe').set({direction :  Hammer.DIRECTION_ALL});
+    return mc;
+  }
 }
 
 @NgModule({
@@ -113,10 +113,10 @@ export class MyHammerConfig extends HammerGestureConfig  {
     SortablejsModule
   ],
   providers: [
-  //   {
-  //   provide: HAMMER_GESTURE_CONFIG,
-  //   useClass: MyHammerConfig,
-  // }
+    {
+    provide: HAMMER_GESTURE_CONFIG,
+    useClass: MyHammerConfig,
+  }
   ],
   entryComponents: [DialogComponent, DialogExempleComponent],
   bootstrap: [AppComponent]
