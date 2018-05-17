@@ -61,8 +61,6 @@
         <p>{{selectedUser.details}}</p>
       </mat-card>
       <mat-nav-list style="height: 100%">
-
-
         <mat-list-item *ngFor="let user of users" (click)="selectedUser = user">
           <mat-icon matListAvatar svgIcon="avatars:{{user.avatar}}" class="avatar"></mat-icon>
           <span>{{user.name}}</span>

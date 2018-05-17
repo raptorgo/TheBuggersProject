@@ -1,5 +1,19 @@
-<mat-tab-group>
-  <mat-tab label="Sensori"><app-sensor-dialog></app-sensor-dialog></mat-tab>
-  <mat-tab label="Info"><app-info-dialog></app-info-dialog></mat-tab>
-  <mat-tab label="Segnala"><app-report></app-report></mat-tab>
-</mat-tab-group>
+<div fxLayout="column">
+  <div fxLayout="row">
+    <div fxFlex="100%">
+      <h4>Dati macchina 1</h4>
+      <span fxFlex></span>
+      <button mat-button (click)="closeDialog()"><mat-icon>close</mat-icon></button>
+    </div>
+  </div>
+  <div fxLayout="row">
+    <div fxFlex="100%">
+      <mat-tab-group>
+        <mat-tab label="Sensori"><app-sensor-dialog></app-sensor-dialog></mat-tab>
+        <mat-tab label="Info"><app-info-dialog></app-info-dialog></mat-tab>
+        <mat-tab label="Segnala"><app-report></app-report></mat-tab>
+      </mat-tab-group>
+    </div>
+  </div>
+</div>
+

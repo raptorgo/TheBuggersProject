@@ -203,18 +203,10 @@ export class DashboardComponent implements OnInit {
   // }
   constructor(private dialog: MatDialog) {
     this.sort = this.sortable;
-    console.log('User');
   }
 
   openDialog(item): void {
     localStorage.setItem('item', JSON.stringify(item));
-    // if(!this.sort) {
-    //   this.dialog.open(DialogExempleComponent, {
-    //     maxWidth: '100%',
-    //     width: '99%',
-    //     height: '90%'
-    //   }).afterClosed();
-    // }
     if (!this.sort) {
       this.dialog.open(MachineDialogComponent, {
         maxWidth: '100%',

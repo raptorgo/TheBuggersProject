@@ -3,6 +3,8 @@ import {MatIconRegistry, MatDialog} from '@angular/material';
 import {DomSanitizer} from '@angular/platform-browser';
 
 import 'rxjs/add/operator/filter';
+import {SocketService} from './services/socket.service';
+import {Subject} from 'rxjs/Subject';
 
 
 @Component({
@@ -178,8 +180,17 @@ export class AppComponent {
   isCandyTheme = false;
   isCostumazies = false;
   sort = false;
+  messages: Subject<any>;
 
-  constructor(iconRegistry: MatIconRegistry, sanitizer: DomSanitizer, private dialog: MatDialog) {
+  // Our simplified interface for sending
+  // messages back to our socket.io server
+  sendMsg(msg) {
+    this.messages.next(msg);
+  }
+
+  constructor(private wsService: SocketService, iconRegistry: MatIconRegistry, sanitizer: DomSanitizer, private dialog: MatDialog) {
+    this.wsService.initSocket();
+    // On 'Welcome' message we print 'A USER ENTERED'
     // To avoid XSS attacks, the URL needs to be trusted from inside of your application.
     const avatarsSafeUrl = sanitizer.bypassSecurityTrustResourceUrl('./assets/avatars.svg');
 

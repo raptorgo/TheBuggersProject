@@ -10,10 +10,13 @@ export class MachineDialogComponent implements OnInit {
   sensorView: boolean;
   infoView: boolean;
   segnalView: boolean;
-  constructor() {
+  constructor(public dialogRef: MatDialogRef<MachineDialogComponent>) {
     this.sensorView = true;
     this.infoView = false;
     this.segnalView = false;
+  }
+  closeDialog () {
+    this.dialogRef.close();
   }
   ngOnInit() {
   }

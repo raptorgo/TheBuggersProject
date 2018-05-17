@@ -49,6 +49,7 @@ import {
   HAMMER_GESTURE_CONFIG,
 } from '@angular/platform-browser';
 import { MachineDialogComponent } from './machine-dialog/machine-dialog.component';
+import {SocketService} from './services/socket.service';
 
 export class MyHammerConfig extends HammerGestureConfig  {
   buildHammer(element: HTMLElement) {
@@ -76,7 +77,6 @@ export class MyHammerConfig extends HammerGestureConfig  {
     RouterModule.forRoot(
       appRoutes,
       {
-        enableTracing: true,
         useHash: true
       } // <-- debugging purposes only
     ),
@@ -109,6 +109,7 @@ export class MyHammerConfig extends HammerGestureConfig  {
     SortablejsModule
   ],
   providers: [
+    SocketService,
     {
     provide: HAMMER_GESTURE_CONFIG,
     useClass: MyHammerConfig,
