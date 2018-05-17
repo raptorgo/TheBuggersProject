@@ -6,7 +6,7 @@
         <!--fxHide="false" fxHide.gt-sm-->
         <mat-icon>menu</mat-icon>
       </button>
-      <span routerLink="./" style="outline: none; cursor: pointer">The Bugger</span>
+      <span routerLink="./" style="outline: none; cursor: pointer">Nome Azienda</span>
       <!-- Filler that pushes the menu button to the end of the toolbar -->
       <span fxFlex style="text-align: center">
         <div id="desktopSettings" class="button-row" *ngIf="isCostumazies">
@@ -51,20 +51,25 @@
 
       <mat-card>
         <div>
-          <h2>{{selectedUser.name}}</h2>
+          <h2>Benvenuto Luca!</h2>
           <span fxFlex="40%;"></span>
           <button mat-mini-fab color="primary" [matMenuTriggerFor]="profileMenu" id="buttonProfileMobile">
             <i class="material-icons">settings</i>
           </button>
         </div>
         <!--<mat-icon svgIcon="avatars:{{selectedUser.avatar}}" class="avatar"></mat-icon>-->
-        <p>{{selectedUser.details}}</p>
+        <!--<p>{{selectedUser.details}}</p>-->
       </mat-card>
       <mat-nav-list style="height: 100%">
-        <mat-list-item *ngFor="let user of users" (click)="selectedUser = user">
-          <mat-icon matListAvatar svgIcon="avatars:{{user.avatar}}" class="avatar"></mat-icon>
+        <mat-list-item *ngFor="let user of users" (click)="selectedUser = user" style="padding-top: 10%;">
+          <!--<mat-icon matListAvatar svgIcon="avatars:{{user.avatar}}" class="avatar"></mat-icon>-->
           <span>{{user.name}}</span>
         </mat-list-item>
+        <mat-card>
+          <div>
+            <h5>© 2018, The Bugger</h5>
+          </div>
+        </mat-card>
       </mat-nav-list>
     </mat-sidenav>
     <div fxLayout="column" (swipeleft)="sidenav.close()" (swiperight)="sidenav.open()">
@@ -99,7 +104,7 @@
       <hr>
       <button mat-menu-item (click)="toggle()">Personalizza</button>
       <button mat-menu-item routerLink="/triggers">Triggers</button>
-      <button mat-menu-item routerLink="/user/modifica-profilo" (click)="sidenav.close()">Modifica Profilo</button>
+      <button mat-menu-item routerLink="/dashboard/modifica-profilo" (click)="sidenav.close()">Modifica Profilo</button>
       <button mat-menu-item>Esci</button>
     </mat-menu>
   </div>

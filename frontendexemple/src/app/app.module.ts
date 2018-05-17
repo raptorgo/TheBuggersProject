@@ -15,7 +15,12 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import {ChartsModule} from 'ng2-charts/ng2-charts';
 import {InfoDialogComponent} from './info-dialog/info-dialog.component';
 import {ReportComponent} from './report/report.component';
-
+import {DashboardComponent} from './dashboard/dashboard.component';
+import { AdminComponent } from './admin/admin.component';
+import {SortablejsModule} from 'angular-sortablejs';
+import {ProfileSettingsComponent} from './profile-settings/profile-settings.component';
+import { MachineDialogComponent } from './machine-dialog/machine-dialog.component';
+import {SocketService} from './services/socket.service';
 
 import {
   MatButtonModule,
@@ -33,24 +38,18 @@ import {
   MatTabsModule,
   MatToolbarModule, MatButtonToggle, MatButtonToggleModule, MatButtonToggleGroup, MatAccordion
 } from '@angular/material';
-import {ModifyProfileComponent} from './modify-profile/modify-profile.component';
-import {DashboardComponent} from './dashboard/dashboard.component';
-import { AdminComponent } from './admin/admin.component';
-import {SortablejsModule} from 'angular-sortablejs';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: 'dashboard', pathMatch: 'prefix' },
   {path: 'dashboard', component: DashboardComponent},
-  {path: 'user/modifica-profilo', component: ModifyProfileComponent},
+  {path: 'dashboard/modifica-profilo', component: ProfileSettingsComponent},
   {path: 'admin', component: AdminComponent}
 ];
 import {
   HammerGestureConfig,
   HAMMER_GESTURE_CONFIG,
 } from '@angular/platform-browser';
-import { MachineDialogComponent } from './machine-dialog/machine-dialog.component';
-import {SocketService} from './services/socket.service';
-import { ProfileSettingsComponent } from './profile-settings/profile-settings.component';
+import {ApiService} from './services/api.service';
 
 export class MyHammerConfig extends HammerGestureConfig  {
   buildHammer(element: HTMLElement) {
@@ -67,7 +66,6 @@ export class MyHammerConfig extends HammerGestureConfig  {
     SensorDialogComponent,
     InfoDialogComponent,
     ReportComponent,
-    ModifyProfileComponent,
     DashboardComponent,
     AdminComponent,
     MachineDialogComponent,
@@ -109,6 +107,7 @@ export class MyHammerConfig extends HammerGestureConfig  {
     SortablejsModule
   ],
   providers: [
+    ApiService,
     SocketService,
     {
     provide: HAMMER_GESTURE_CONFIG,
