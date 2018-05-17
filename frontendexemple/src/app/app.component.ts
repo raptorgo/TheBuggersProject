@@ -4,8 +4,6 @@ import {DomSanitizer} from '@angular/platform-browser';
 
 import 'rxjs/add/operator/filter';
 
-import {DialogComponent} from './dialog/dialog.component';
-import {DialogExempleComponent} from './dialog-exemple/dialog-exemple.component';
 
 @Component({
   selector: 'app-root',
@@ -217,20 +215,6 @@ export class AppComponent {
     } else {
       this.sort = true;
     }
-  }
-  openAdminDialog() {
-    this.dialog.open(DialogComponent).afterClosed()
-      .filter(result => !!result)
-      .subscribe(user => {
-        this.users.push(user);
-        this.selectedUser = user;
-      });
-  }
-  openDialog(): void {
-    this.dialog.open(DialogExempleComponent, {
-      width: '99%',
-      height: '90%'
-    }).afterClosed();
   }
 
   checkClass(): string {

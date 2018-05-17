@@ -37,3 +37,6 @@ html, body {
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
+.mat-tab-header-pagination-controls-enabled .mat-tab-header-pagination {
+  display: none !important;
+}

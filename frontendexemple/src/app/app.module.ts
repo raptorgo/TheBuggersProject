@@ -7,17 +7,14 @@ import {RouterModule, Routes} from '@angular/router';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import {AppComponent} from './app.component';
-import {DialogComponent} from './dialog/dialog.component';
 
 import {FlexLayoutModule} from '@angular/flex-layout';
 import 'hammerjs';
-import {DialogExempleComponent} from './dialog-exemple/dialog-exemple.component';
 import {SensorDialogComponent} from './sensor-dialog/sensor-dialog.component';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {ChartsModule} from 'ng2-charts/ng2-charts';
 import {InfoDialogComponent} from './info-dialog/info-dialog.component';
 import {ReportComponent} from './report/report.component';
-import {CardsComponent} from './cards/cards.component';
 
 
 import {
@@ -51,6 +48,7 @@ import {
   HammerGestureConfig,
   HAMMER_GESTURE_CONFIG,
 } from '@angular/platform-browser';
+import { MachineDialogComponent } from './machine-dialog/machine-dialog.component';
 
 export class MyHammerConfig extends HammerGestureConfig  {
   buildHammer(element: HTMLElement) {
@@ -66,15 +64,13 @@ export class MyHammerConfig extends HammerGestureConfig  {
 @NgModule({
   declarations: [
     AppComponent,
-    DialogComponent,
-    DialogExempleComponent,
     SensorDialogComponent,
     InfoDialogComponent,
     ReportComponent,
-    CardsComponent,
     ModifyProfileComponent,
     DashboardComponent,
     AdminComponent,
+    MachineDialogComponent,
   ],
   imports: [
     RouterModule.forRoot(
@@ -118,7 +114,7 @@ export class MyHammerConfig extends HammerGestureConfig  {
     useClass: MyHammerConfig,
   }
   ],
-  entryComponents: [DialogComponent, DialogExempleComponent],
+  entryComponents: [MachineDialogComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule {

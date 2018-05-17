@@ -79,7 +79,7 @@ export class SensorDialogComponent implements OnInit {
     this.selected = 'Line Chart';
     this.fSelected[0] = 'Last Day';
   }
-
+  sensorList = ['Temperatura', 'Umidità'];
   ngOnInit() {
   }
 }

@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {DialogExempleComponent} from '../dialog-exemple/dialog-exemple.component';
 import {MatDialog} from '@angular/material';
 import {SortablejsOptions} from 'angular-sortablejs';
+import {MachineDialogComponent} from '../machine-dialog/machine-dialog.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -13,7 +13,7 @@ export class DashboardComponent implements OnInit {
   @Input () sortable: boolean;
   users = [
     {
-      name: '1',
+      name: 'Forno Riscaldamento',
       avatar: 'Macchina 1',
       details: 'I love cheese, especially airedale queso. Cheese and biscuits halloumi cauliflower cheese cottage ' +
       'cheese swiss boursin fondue caerphilly. Cow port-salut camembert de normandie macaroni cheese feta ' +
@@ -167,7 +167,7 @@ export class DashboardComponent implements OnInit {
     }
   }
   getSortableOptions (): SortablejsOptions {
-    if(this.sort) {
+    if (this.sort) {
       return this.sortableEnabled;
     }
     return this.sortableDisabled;
@@ -208,8 +208,16 @@ export class DashboardComponent implements OnInit {
 
   openDialog(item): void {
     localStorage.setItem('item', JSON.stringify(item));
-    if(!this.sort) {
-      this.dialog.open(DialogExempleComponent, {
+    // if(!this.sort) {
+    //   this.dialog.open(DialogExempleComponent, {
+    //     maxWidth: '100%',
+    //     width: '99%',
+    //     height: '90%'
+    //   }).afterClosed();
+    // }
+    if (!this.sort) {
+      this.dialog.open(MachineDialogComponent, {
+        maxWidth: '100%',
         width: '99%',
         height: '90%'
       }).afterClosed();

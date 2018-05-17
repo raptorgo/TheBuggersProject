@@ -7,4 +7,8 @@
   .chartjs-render-monitor{
     height: 250px !important;
   }
+  .infoChartMobile{
+    margin-bottom: 5%;
+    margin-top: 5%;
+  }
 }
