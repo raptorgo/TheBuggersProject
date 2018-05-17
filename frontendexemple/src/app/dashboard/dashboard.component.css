@@ -1,7 +1,7 @@
 @media only screen and (max-width: 600px) {
-  /*#sidenav{*/
-  /*display: none;*/
-  /*}*/
+  .machineTitle{
+    margin-left: 4%;
+  }
   #buttonProfile{
     display: none;
   }
@@ -19,6 +19,10 @@
   }
 }
 @media only screen and (min-width: 600px) {
+  .machineTitle{
+    margin-left: 2.5%;
+    font-size: 150%;
+  }
   .cdk-overlay-pane {
     max-width: 100% !important;
   }

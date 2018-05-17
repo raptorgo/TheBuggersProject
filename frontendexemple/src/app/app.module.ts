@@ -39,8 +39,8 @@ import { AdminComponent } from './admin/admin.component';
 import {SortablejsModule} from 'angular-sortablejs';
 
 const appRoutes: Routes = [
-  {path: '', redirectTo: 'user', pathMatch: 'prefix' },
-  {path: 'user', component: DashboardComponent},
+  {path: '', redirectTo: 'dashboard', pathMatch: 'prefix' },
+  {path: 'dashboard', component: DashboardComponent},
   {path: 'user/modifica-profilo', component: ModifyProfileComponent},
   {path: 'admin', component: AdminComponent}
 ];
@@ -50,14 +50,13 @@ import {
 } from '@angular/platform-browser';
 import { MachineDialogComponent } from './machine-dialog/machine-dialog.component';
 import {SocketService} from './services/socket.service';
+import { ProfileSettingsComponent } from './profile-settings/profile-settings.component';
 
 export class MyHammerConfig extends HammerGestureConfig  {
   buildHammer(element: HTMLElement) {
     let mc = new Hammer(element, {
       touchAction: "pan-y"
-      // touchAction: "auto",
     });
-    // mc.get('swipe').set({direction :  Hammer.DIRECTION_ALL});
     return mc;
   }
 }
@@ -72,13 +71,14 @@ export class MyHammerConfig extends HammerGestureConfig  {
     DashboardComponent,
     AdminComponent,
     MachineDialogComponent,
+    ProfileSettingsComponent,
   ],
   imports: [
     RouterModule.forRoot(
       appRoutes,
       {
-        useHash: true
-      } // <-- debugging purposes only
+        // useHash: true
+      }
     ),
     ChartsModule,
     BrowserModule,

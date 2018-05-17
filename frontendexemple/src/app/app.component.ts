@@ -234,4 +234,5 @@ export class AppComponent {
     }
     return "nDarkBtn";
   }
+  selectedBtn = "home";
 }
