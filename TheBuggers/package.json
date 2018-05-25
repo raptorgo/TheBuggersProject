@@ -7,10 +7,16 @@
   },
   "dependencies": {
     "cookie-parser": "~1.4.3",
+    "cors": "^2.8.4",
     "debug": "~2.6.9",
     "express": "~4.16.0",
+    "express-jwt": "^5.3.1",
     "http-errors": "~1.6.2",
+    "influx": "^5.0.7",
     "jade": "~1.11.0",
-    "morgan": "~1.9.0"
+    "jwt-express": "^1.1.0",
+    "morgan": "~1.9.0",
+    "pg": "^7.4.3",
+    "socket.io": "^2.1.0"
   }
 }
