@@ -21,6 +21,7 @@ import {SortablejsModule} from 'angular-sortablejs';
 import {ProfileSettingsComponent} from './profile-settings/profile-settings.component';
 import { MachineDialogComponent } from './machine-dialog/machine-dialog.component';
 import {SocketService} from './services/socket.service';
+import {Ng2GoogleChartsModule} from 'ng2-google-charts';
 
 import {
   MatButtonModule,
@@ -36,7 +37,7 @@ import {
   MatSlideToggleModule,
   MatGridListModule,
   MatTabsModule,
-  MatToolbarModule, MatButtonToggle, MatButtonToggleModule, MatButtonToggleGroup, MatAccordion
+  MatToolbarModule, MatButtonToggle, MatButtonToggleModule, MatButtonToggleGroup, MatAccordion,
 } from '@angular/material';
 
 const appRoutes: Routes = [
@@ -78,6 +79,7 @@ export class MyHammerConfig extends HammerGestureConfig  {
         // useHash: true
       }
     ),
+    MatInputModule,
     ChartsModule,
     BrowserModule,
     FormsModule,
@@ -90,7 +92,6 @@ export class MyHammerConfig extends HammerGestureConfig  {
     MatCheckboxModule,
     MatDialogModule,
     MatIconModule,
-    MatInputModule,
     MatListModule,
     MatMenuModule,
     MatSelectModule,
@@ -104,7 +105,8 @@ export class MyHammerConfig extends HammerGestureConfig  {
     MatButtonToggleModule,
     MatExpansionModule,
     SortablejsModule.forRoot({ animation: 500 }),
-    SortablejsModule
+    SortablejsModule,
+    Ng2GoogleChartsModule
   ],
   providers: [
     ApiService,

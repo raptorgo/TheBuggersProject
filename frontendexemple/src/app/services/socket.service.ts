@@ -8,7 +8,7 @@ export class SocketService {
   private socket;
 
   public initSocket(): void {
-    this.socket = io('http://192.168.101.77:3000');
+    this.socket = io('http://192.168.101.82:3000');
     // this.socket = io('http://192.168.137.254:3000');
     this.onMessage().subscribe((data) => {
       console.log(data);

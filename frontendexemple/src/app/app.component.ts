@@ -30,7 +30,11 @@ export class AppComponent {
   sendMsg(msg) {
     this.messages.next(msg);
   }
-
+  aperto = false;
+  top() {
+    this.aperto= false;
+    alert('ciao');
+  }
   constructor(private wsService: SocketService, private api: ApiService, iconRegistry: MatIconRegistry, sanitizer: DomSanitizer, private dialog: MatDialog) {
     this.wsService.initSocket();
     // On 'Welcome' message we print 'A USER ENTERED'
@@ -42,6 +46,7 @@ export class AppComponent {
       this.users = data;
       this.selectedUser = this.users[0];
     });
+    // panel.closeAll();
   }
   themeColor;
   backupThemeColor;

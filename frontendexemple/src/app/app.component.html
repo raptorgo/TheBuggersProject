@@ -11,10 +11,14 @@
       <span fxFlex style="text-align: center">
         <div id="desktopSettings" class="button-row" *ngIf="isCostumazies">
           <!--(click)="setColor('blue')"-->
-          <button mat-mini-fab (click)="setColor('red')" style="background-color: red" [disabled]="isDarkTheme"></button>
-          <button mat-mini-fab (click)="isCandyTheme = !isCandyTheme" style="background-color: blue" [disabled]="isDarkTheme"></button>
-          <button mat-mini-fab (click)="setColor('yellow')" style="background-color: yellow" [disabled]="isDarkTheme"></button>
-          <button mat-mini-fab (click)="setColor('green')" style="background-color: green" [disabled]="isDarkTheme"></button>
+          <button mat-mini-fab (click)="setColor('red')" style="background-color: red"
+                  [disabled]="isDarkTheme"></button>
+          <button mat-mini-fab (click)="isCandyTheme = !isCandyTheme" style="background-color: blue"
+                  [disabled]="isDarkTheme"></button>
+          <button mat-mini-fab (click)="setColor('yellow')" style="background-color: yellow"
+                  [disabled]="isDarkTheme"></button>
+          <button mat-mini-fab (click)="setColor('green')" style="background-color: green"
+                  [disabled]="isDarkTheme"></button>
           <button mat-mini-fab (click)="isDarkTheme = !isDarkTheme" (click)="setColor('dark')" class="darkBtn">
             <i *ngIf="!isDarkTheme" class="material-icons">brightness_2</i>
             <i *ngIf="isDarkTheme" class="material-icons">wb_sunny</i>
@@ -35,9 +39,12 @@
       <div id="mobileSettings" class="button-row" *ngIf="isCostumazies">
         <!--(click)="setColor('blue')"-->
         <button mat-mini-fab (click)="setColor('red')" style="background-color: red" [disabled]="isDarkTheme"></button>
-        <button mat-mini-fab (click)="isCandyTheme = !isCandyTheme" style="background-color: blue" [disabled]="isDarkTheme"></button>
-        <button mat-mini-fab (click)="setColor('yellow')" style="background-color: yellow" [disabled]="isDarkTheme"></button>
-        <button mat-mini-fab (click)="setColor('green')" style="background-color: green" [disabled]="isDarkTheme"></button>
+        <button mat-mini-fab (click)="isCandyTheme = !isCandyTheme" style="background-color: blue"
+                [disabled]="isDarkTheme"></button>
+        <button mat-mini-fab (click)="setColor('yellow')" style="background-color: yellow"
+                [disabled]="isDarkTheme"></button>
+        <button mat-mini-fab (click)="setColor('green')" style="background-color: green"
+                [disabled]="isDarkTheme"></button>
         <button mat-mini-fab (click)="isDarkTheme = !isDarkTheme" (click)="setColor('dark')" class="darkBtn">
           <i *ngIf="!isDarkTheme" class="material-icons">brightness_2</i>
           <i *ngIf="isDarkTheme" class="material-icons">wb_sunny</i>
@@ -57,14 +64,42 @@
             <i class="material-icons">settings</i>
           </button>
         </div>
-        <!--<mat-icon svgIcon="avatars:{{selectedUser.avatar}}" class="avatar"></mat-icon>-->
-        <!--<p>{{selectedUser.details}}</p>-->
       </mat-card>
       <mat-nav-list style="height: 100%">
-        <mat-list-item *ngFor="let user of users" (click)="selectedUser = user" style="padding-top: 10%;">
-          <!--<mat-icon matListAvatar svgIcon="avatars:{{user.avatar}}" class="avatar"></mat-icon>-->
-          <span>{{user.name}}</span>
-        </mat-list-item>
+        <!--<mat-list style="padding-top: 4%; padding-bottom: 4%;">-->
+          <mat-accordion>
+            <mat-expansion-panel #expe (click)="top()" (click)="expe.close()" [expanded]="false" [hideToggle]="true">
+              <mat-expansion-panel-header class="listItem">
+                <mat-panel-title>
+                  <!--{{users[0].name }}-->
+                  ciao
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <!--<mat-form-field>-->
+                <!--<input matInput placeholder="First name">-->
+              <!--</mat-form-field>-->
+            </mat-expansion-panel>
+            <div *ngFor="let user of users">
+              <mat-expansion-panel class="listItem">
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    {{user.name}}
+                  </mat-panel-title>
+                </mat-expansion-panel-header>
+
+                <mat-form-field>
+                  <input matInput placeholder="First name">
+                </mat-form-field>
+              </mat-expansion-panel>
+            </div>
+          </mat-accordion>
+          <!--<mat-list-item class="listItem">Item 1</mat-list-item>-->
+          <!--<mat-divider></mat-divider>-->
+          <!--<mat-list-item class="listItem">Item 2</mat-list-item>-->
+          <!--<mat-divider></mat-divider>-->
+          <!--<mat-list-item class="listItem">Item 3</mat-list-item>-->
+        <!--</mat-list>-->
+
         <mat-card>
           <div>
             <h5>© 2018, The Bugger</h5>
@@ -78,29 +113,27 @@
   </mat-sidenav-container>
 
 
-
   <!--Footerrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr-->
 
   <!--<footer>-->
-    <!--<mat-toolbar color='primary'>-->
-      <!--<mat-toolbar-row [ngClass]="themeColor">-->
-        <!--<span></span>-->
-        <!--<h3>© Copyright</h3>-->
-        <!--<span fxFlex></span>-->
+  <!--<mat-toolbar color='primary'>-->
+  <!--<mat-toolbar-row [ngClass]="themeColor">-->
+  <!--<span></span>-->
+  <!--<h3>© Copyright</h3>-->
+  <!--<span fxFlex></span>-->
 
-        <!--<button mat-icon-button [matMenuTriggerFor]="themeMenu">-->
-          <!--<mat-icon>more_vert</mat-icon>-->
-        <!--</button>-->
+  <!--<button mat-icon-button [matMenuTriggerFor]="themeMenu">-->
+  <!--<mat-icon>more_vert</mat-icon>-->
+  <!--</button>-->
 
-        <!--<mat-menu #themeMenu x-position="before">-->
-          <!--<button mat-menu-item (click)="isDarkTheme = !isDarkTheme">Toggle Theme</button>-->
-        <!--</mat-menu>-->
-      <!--</mat-toolbar-row>-->
-    <!--</mat-toolbar>-->
+  <!--<mat-menu #themeMenu x-position="before">-->
+  <!--<button mat-menu-item (click)="isDarkTheme = !isDarkTheme">Toggle Theme</button>-->
+  <!--</mat-menu>-->
+  <!--</mat-toolbar-row>-->
+  <!--</mat-toolbar>-->
   <!--</footer>-->
   <div>
     <mat-menu #profileMenu="matMenu" id="ic" yPosition="above" [overlapTrigger]="false">
-      <mat-icon svgIcon="avatars:{{selectedUser.avatar}}" class="avatarTop"></mat-icon>
       <hr>
       <button mat-menu-item (click)="toggle()">Personalizza</button>
       <button mat-menu-item routerLink="/triggers">Triggers</button>

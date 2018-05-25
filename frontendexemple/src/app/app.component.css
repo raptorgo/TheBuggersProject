@@ -140,4 +140,8 @@ mat-sidenav {
 .dark{
   background-color: #03a9f4;
 }
+.listItem{
+  padding-top: 4%;
+  padding-bottom: 4%;
+}
 /*: mat-toolbar*/

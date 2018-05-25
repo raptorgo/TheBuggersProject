@@ -17,6 +17,7 @@ export class SensorDialogComponent implements OnInit {
   public barChartLabels: string[] = ['esigneza', 'info', 'acquisto', 'attesa', 'fruizione', 'post'];
   public barChartType: string = 'bar';
   public barChartLegend: boolean = true;
+
   public chartClicked(e: any): void {
     console.log(e);
   }
@@ -28,12 +29,12 @@ export class SensorDialogComponent implements OnInit {
   public barChartData: any[] = [
     // {data: [65, 59, 80, 81, 56, 55, 40], label: 'Series A'},
     // {data: [28, 48, 40, 19, 86, 27, 90], label: 'Series B'}
-    {data: [0, 2, -2, 4, 3,  10, 8, -5, 5, 15, -15, 0], label: 'Series B'}
+    {data: [0, 2, -2, 4, 3, 10, 8, -5, 5, 15, -15, 0], label: 'Series B'}
   ];
   //line chart
   // ['January', 'February', 'March', 'April', 'May', 'June', 'July']
   public lineChartLabels: Array<any> = ['', 'esigenza', '', 'info', '', 'acquisto', '', 'attesa', '', 'fruizione', '', 'post'];
-  public lineChartOptions:any = {
+  public lineChartOptions: any = {
     scaleShowVerticalLines: false,
     maintainAspectRatio: false,
     responsive: true
@@ -67,19 +68,50 @@ export class SensorDialogComponent implements OnInit {
   public lineChartLegend: boolean = true;
   public lineChartType: string = 'line';
   //pie chart
-  public pieChartOptions:any = {
+  public pieChartOptions: any = {
     scaleShowVerticalLines: false,
     maintainAspectRatio: false,
     responsive: true
   };
   public pieChartLabels: string[] = ['Download Sales', 'In-Store Sales'];
-  public pieChartData:number[] = [300, 500];
+  public pieChartData: number[] = [300, 500];
   public pieChartType: string = 'pie';
+
   constructor() {
     this.selected = 'Line Chart';
     this.fSelected[0] = 'Last Day';
   }
+
   sensorList = ['Temperatura', 'Umidità'];
+
   ngOnInit() {
   }
+
+  pieChartData1 = {
+    chartType: 'Gauge',
+    dataTable: [
+      ['Label', 'Value'],
+      ['Temperatura', 60]
+    ],
+    options: {
+      width: 200, height: 420,
+      redFrom: 90, redTo: 100,
+      yellowFrom: 75, yellowTo: 90,
+      minorTicks: 5
+    },
+  };
+  lineChartData = {
+    chartType: 'LineChart',
+    dataTable: [
+      ['Year', 'Sales', 'Expenses'],
+      ['2004', 1000, 400],
+      ['2005', 1170, 460],
+      ['2006', 660, 1120],
+      ['2007', 1030, 540]
+    ],
+    options: {
+      height: 420,
+      title: 'Company Performance'
+    }
+  };
 }
