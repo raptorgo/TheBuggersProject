@@ -10,8 +10,9 @@
                 <!--(chartHover)="chartHovered($event)"-->
                 <!--(chartClick)="chartClicked($event)"></canvas>-->
 
-
-        <google-chart style="margin: auto;" [data]="pieChartData1"></google-chart>
+        <!--<google-chart #cchart [data]="columnChartData2"></google-chart>-->
+        <!--<input type="button" value="Change data" (click)="changeData2()">-->
+        <google-chart style="margin: auto;" #cchart (chartReady)='ready($event)' (chartError)='error($event)' [data]="pieChartData1"></google-chart>
 
         <!--<google-chart style="margin: auto;" [data]="lineChartData"></google-chart>-->
 

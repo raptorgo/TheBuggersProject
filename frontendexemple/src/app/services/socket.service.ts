@@ -8,23 +8,22 @@ export class SocketService {
   private socket;
 
   public initSocket(): void {
-    this.socket = io('http://192.168.101.82:3000');
+    this.socket = io('http://192.168.101.82:3000/company1');
     // this.socket = io('http://192.168.137.254:3000');
     this.onMessage().subscribe((data) => {
-      console.log(data);
+      console.log("dato ricevuto " + JSON.stringify(data));
     })
-    this.send({data: "ciaoooo"});
+    // this.send({data: "ciaoooo"});
   }
 
-  public send(message: Object): void {
-    this.socket.emit('message', message);
-  }
+  // public send(message: Object): void {
+  //   this.socket.emit('message', message);
+  // }
 
   public onMessage(): Observable<Object> {
     return new Observable<Object>(observer => {
-      this.socket.on('message', (data: Object) => {
-        console.log("DSIOFJDSUHFEDHFIEUò");
-        observer.next(data)
+      this.socket.on('message', (data: any) => {
+        observer.next(data.message)
       });
     });
   }

@@ -152,6 +152,30 @@ export class DashboardComponent implements OnInit {
       isCool: true
     }
   ];
+  selected: string = "Line Chart";
+  public lineChartData: any =  {
+    chartType: 'LineChart',
+    dataTable: [
+      ['Year', 'Sales', 'Expenses'],
+      ['2004',  1000,      400],
+      ['2005',  1170,      460],
+      ['2006',  660,       1120],
+      ['2007',  1030,      540]
+    ],
+    options: {title: 'Company Performance'}
+  };
+  public gaugeChartData: any = {
+    chartType: 'Gauge',
+    dataTable: [
+      ['Label', 'Value'],
+      ['Temperatura', 60]
+    ],
+    options: {
+      animation: {
+        duration: 1000,
+        easing: 'out'},
+    }
+  };
   sort: boolean = this.sortable;
   sortableDisabled: SortablejsOptions = {
     disabled: true

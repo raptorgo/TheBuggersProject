@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {SocketService} from '../services/socket.service';
+import {ViewChild} from '@angular/core';
+import { ChartErrorEvent } from 'ng2-google-charts';
 
 @Component({
   selector: 'app-sensor-dialog',
@@ -6,6 +9,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sensor-dialog.component.css']
 })
 export class SensorDialogComponent implements OnInit {
+  @ViewChild('cchart') cchart;
+
   selected: string;
   fSelected: string[] = new Array();
   public barChartOptions: any = {
@@ -17,6 +22,48 @@ export class SensorDialogComponent implements OnInit {
   public barChartLabels: string[] = ['esigneza', 'info', 'acquisto', 'attesa', 'fruizione', 'post'];
   public barChartType: string = 'bar';
   public barChartLegend: boolean = true;
+
+  public columnChartData2:any =  {
+    chartType: 'ColumnChart',
+    dataTable: [
+      ['Country', 'Performance', 'Profits'],
+      ['Germany', 0, 0],
+      ['USA', 0, 0],
+      ['Brazil', 0, 0],
+      ['Canada', 0, 0],
+      ['France', 0, 0],
+      ['RU', 0, 0]
+    ],
+    options: {
+      title: 'Countries',
+      animation:{
+        duration: 1000,
+        easing: 'out',
+        startup: true
+      }
+    }
+  };
+
+  public changeData2():void {
+    let dataTable = this.cchart.wrapper.getDataTable();
+    for (let i = 0; i < 6; i++) {
+      dataTable.setValue(i, 1, Math.round(Math.random() * 1000));
+      dataTable.setValue(i, 2, Math.round(Math.random() * 1000));
+    }
+    this.cchart.redraw();
+  }
+  public pieChartData1: any = {
+    chartType: 'Gauge',
+    dataTable: [
+      ['Label', 'Value'],
+      ['Temperatura', 60]
+    ],
+    options: {
+      animation: {
+        duration: 1000,
+        easing: 'out'},
+    }
+  };
 
   public chartClicked(e: any): void {
     console.log(e);
@@ -31,6 +78,9 @@ export class SensorDialogComponent implements OnInit {
     // {data: [28, 48, 40, 19, 86, 27, 90], label: 'Series B'}
     {data: [0, 2, -2, 4, 3, 10, 8, -5, 5, 15, -15, 0], label: 'Series B'}
   ];
+  public error(event: ChartErrorEvent) {
+    console.log(event)
+  }
   //line chart
   // ['January', 'February', 'March', 'April', 'May', 'June', 'July']
   public lineChartLabels: Array<any> = ['', 'esigenza', '', 'info', '', 'acquisto', '', 'attesa', '', 'fruizione', '', 'post'];
@@ -77,29 +127,31 @@ export class SensorDialogComponent implements OnInit {
   public pieChartData: number[] = [300, 500];
   public pieChartType: string = 'pie';
 
-  constructor() {
+  constructor(private socket: SocketService) {
     this.selected = 'Line Chart';
     this.fSelected[0] = 'Last Day';
+  }
+  ready(event) {
+    this.socket.onMessage().subscribe((data: any) => {
+      let dataTable = this.cchart.wrapper.getDataTable();
+      dataTable.setValue(0, 1, data[0].value);
+      this.cchart.redraw();
+      // this.pieChartData1.dataTable = Object.create(this.pieChartData1.dataTable);
+      // this.pieChartData1.dataTable[0][1] = 25
+      // this.cchart.redraw();
+      console.log('Old = ' + data);
+      console.log('New ' + data[0].value);
+    })
   }
 
   sensorList = ['Temperatura', 'Umidità'];
 
   ngOnInit() {
+
   }
 
-  pieChartData1 = {
-    chartType: 'Gauge',
-    dataTable: [
-      ['Label', 'Value'],
-      ['Temperatura', 60]
-    ],
-    options: {
-      width: 200, height: 420,
-      redFrom: 90, redTo: 100,
-      yellowFrom: 75, yellowTo: 90,
-      minorTicks: 5
-    },
-  };
+
+
   lineChartData = {
     chartType: 'LineChart',
     dataTable: [

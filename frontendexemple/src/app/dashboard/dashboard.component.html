@@ -1,3 +1,21 @@
+<mat-accordion>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <h3>Dati Generali</h3>
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <mat-button-toggle-group #group="matButtonToggleGroup" [(ngModel)]="selected" style="margin-bottom: 3%">
+      <mat-button-toggle value="Line Chart">Line Chart</mat-button-toggle>
+      <mat-button-toggle value="Gauge Chart">Gauge Chart</mat-button-toggle>
+    </mat-button-toggle-group>
+    <google-chart *ngIf="group.value == 'Gauge Chart'" style="margin-top: 3%" [data]="gaugeChartData"></google-chart>
+    <google-chart *ngIf="group.value == 'Line Chart'" style="margin-top: 3%" [data]="lineChartData"></google-chart>
+  </mat-expansion-panel>
+</mat-accordion>
+
+
+
 <div>
   <h4 class="machineTitle">Le Tue Macchine</h4>
   <span></span>
