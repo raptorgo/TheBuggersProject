@@ -5,12 +5,28 @@
         <h3>Dati Generali</h3>
       </mat-panel-title>
     </mat-expansion-panel-header>
-    <mat-button-toggle-group #group="matButtonToggleGroup" [(ngModel)]="selected" style="margin-bottom: 3%">
-      <mat-button-toggle value="Line Chart">Line Chart</mat-button-toggle>
-      <mat-button-toggle value="Gauge Chart">Gauge Chart</mat-button-toggle>
-    </mat-button-toggle-group>
-    <google-chart *ngIf="group.value == 'Gauge Chart'" style="margin-top: 3%" [data]="gaugeChartData"></google-chart>
-    <google-chart *ngIf="group.value == 'Line Chart'" style="margin-top: 3%" [data]="lineChartData"></google-chart>
+    <div fxLayout="column">
+      <div fxLayout="row">
+        <div fxFlex="100%">
+          <google-chart [data]="lineChartData"></google-chart>
+        </div>
+      </div>
+      <div fxLayout="row" fxLayout.xs="column" style="margin-top: 5%">
+        <div fxFlex="50%" fxLayout.xs="row" style="margin-left: 5%;">
+          <google-chart [data]="gaugeChartData"></google-chart>
+        </div>
+        <div fxFlex="50%" fxLayout.xs="row">
+          <div fxLayout="column">
+            <div fxLayout="row">
+              <h4 >Dati dell'ultima ora</h4>
+            </div>
+            <div fxLayout="row">
+              regeoprcere
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </mat-expansion-panel>
 </mat-accordion>
 
