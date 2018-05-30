@@ -13,16 +13,21 @@
     <script src="socket.io.js"></script>
     <script>
         // Connecting to the IO server
-        var socket = io.connect('http://localhost:3000/company12');
+        /*var socket = io.connect('http://localhost:3000/company12');
         // On 'Welcome' message we print 'A USER ENTERED'
         socket.on('message', function (socket) {
             $('body').append("<p>A USER ENTERED</p>");
-        });
+        });*/
     </script>
 </head>
 
 <body>
     <p>Esempio di una semplice comunicazione<br>Client (HTML+JS) <> Server (NodeJS)</p>
+    <form method="POST" action="/login">
+        <input type="text" name="email">
+        <input type="text" name="password">
+        <input type="submit" name="password" value="submit">
+    </form>
 </body>
 
 </html>

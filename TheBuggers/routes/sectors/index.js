@@ -12,15 +12,6 @@ router.get('/company/:id', function (req, res, next) {
     }, {
         "id": 2,
         "name": "Impianto Angus"
-    }, {
-        "id": 3,
-        "name": "..."
-    }, {
-        "id": 4,
-        "name": "..."
-    }, {
-        "id": 5,
-        "name": "..."
     }])
 });
 // Get sector from ID
