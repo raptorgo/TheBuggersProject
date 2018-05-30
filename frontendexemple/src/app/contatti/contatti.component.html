@@ -1,34 +1,79 @@
-<h1>ciao</h1>
+<div class="bella">
+<div class="banner"><h3 class="scrittaBanner"><i>CONTATTI</i></h3></div>
 
-<agm-map
-  [latitude]="lat"
-  [longitude]="lng"
-  [zoom]="zoom"
-  [styles]= "styles"
-  [disableDefaultUI]="false"
-  [zoomControl]="false"
-  (mapClick)="mapClicked($event)">
 
-  <agm-marker
-    *ngFor="let m of markers; let i = index"
-    (markerClick)="clickedMarker(m.label, i)"
-    [latitude]="m.lat"
-    [longitude]="m.lng"
-    [label]="m.label"
-    [markerDraggable]="m.draggable"
-    (dragEnd)="markerDragEnd(m, $event)">
+<div id="container">
+  <div class="item" id="menu-azienda">
+    <h2>Buggers spa</h2>
+    <p>Via Prasecco 3<br>
+      33170 Pordenone Italy<br>
+      Telefono +39 0499658512<br>
+      FAX +39 0498562358<br>
+    info@Buggers.com</p>
+  </div>
+  <div class="item" id="membri">
+    <h3>Project Manager</h3>
+    <p>Mattia Cettolin <br>
+      Tel. 3468978526 <br> <a href="mailto:mattia.cettolin@gmail.com">mattia.cettolin@gmail.com</a></p>
 
-    <agm-info-window>
-      <strong>InfoWindow content</strong>
-    </agm-info-window>
+    <h3>tecnico</h3>
+    <p>Giacomo Grava <br>
+    Tel. 3448958526 <br> <a href="mailto:giacomo.grava@gmail.com">giacomo.grava@gmail.com</a></p>
 
-  </agm-marker>
+    <h3>sviluppatore api</h3>
+    <p>Luca De Nadai <br>
+    Tel. 34489784565 <br> <a href="mailto:luca.denadai@gmail.com">luca.denadai@gmail.com</a></p>
 
-  <agm-circle [latitude]="lat + 0.3" [longitude]="lng"
-              [radius]="5000"
-              [fillColor]="'red'"
-              [circleDraggable]="true"
-              [editable]="true">
-  </agm-circle>
+    <h3>progammatore senior</h3>
+    <p>stefan shllaku <br>
+    Tel. 3448482626 <br> <a href="mailto:stefanshllaku@gmail.com">stefanshllaku@gmail.com</a></p>
 
-</agm-map>
+    <h3>Programmatore junior</h3>
+    <p>Riccardo Cognolato <br>
+    Tel. 3458595992 <br> <a href="mailto:riccardo.cognolato@gmail.com">riccardo.cognolato@gmail.com</a></p>
+
+  </div>
+
+  <div class="item" id="mappa">
+
+      <agm-map
+        [latitude]="lat"
+        [longitude]="lng"
+        [zoom]="zoom"
+        [styles]="styles"
+        [disableDefaultUI]="false"
+        [zoomControl]="false"
+        (mapClick)="mapClicked($event)">
+
+        <agm-marker
+          *ngFor="let m of markers; let i = index"
+          (markerClick)="clickedMarker(m.label, i)"
+          [latitude]="m.lat"
+          [longitude]="m.lng"
+          [label]="m.label"
+          [markerDraggable]="m.draggable"
+          (dragEnd)="markerDragEnd(m, $event)">
+
+          <agm-info-window>
+            <strong>InfoWindow content</strong>
+          </agm-info-window>
+
+        </agm-marker>
+
+        <agm-circle [latitude]="lat + 0.3" [longitude]="lng"
+                    [radius]="5000"
+                    [fillColor]="'red'"
+                    [circleDraggable]="true"
+                    [editable]="true">
+        </agm-circle>
+
+      </agm-map>
+
+  </div>
+</div>
+<footer>
+
+  <mat-toolbar color='primary'>©The Buggers S.p.A. - Partita IVA:13378520152</mat-toolbar>
+
+</footer>
+</div>

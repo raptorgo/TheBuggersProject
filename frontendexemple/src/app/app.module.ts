@@ -26,14 +26,17 @@ import {
   MatSlideToggleModule,
   MatGridListModule,
   MatTabsModule,
-  MatToolbarModule
+  MatToolbarModule,
+  MatButtonToggleModule
 } from '@angular/material';
 
 import 'hammerjs';
 import { DialogExempleComponent } from './dialog-exemple/dialog-exemple.component';
-import { HomeComponent } from './home/home.component';
-import { HometabComponent } from './hometab/hometab.component';
+import { HomeComponent } from './tab/tab.component';
+import { HometabComponent } from './chiSiamo/chiSiamo.component';
 import { ContattiComponent } from './contatti/contatti.component';
+import { FirstPageComponent } from './first-page/first-page.component';
+import { ChangeDataComponent } from './change-data/change-data.component';
 
 
 
@@ -44,7 +47,9 @@ import { ContattiComponent } from './contatti/contatti.component';
     DialogExempleComponent,
     HomeComponent,
     HometabComponent,
-    ContattiComponent
+    ContattiComponent,
+    FirstPageComponent,
+    ChangeDataComponent
 
   ],
   imports: [
@@ -74,10 +79,12 @@ import { ContattiComponent } from './contatti/contatti.component';
     MatTabsModule,
     MatToolbarModule,
     MatGridListModule,
+    MatButtonToggleModule,
     // Flex-layout
     FlexLayoutModule,
     MatStepperModule,
     MatButtonModule
+
   ],
   providers: [],
   entryComponents: [DialogComponent, DialogExempleComponent],

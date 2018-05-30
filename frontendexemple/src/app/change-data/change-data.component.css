@@ -1,0 +1,16 @@
+.changeButton{
+  display: inherit;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: lightblue;
+
+}
+
+mat-card{
+  margin: 15%;
+  width: 121%;
+}
+
+.input{
+  padding-left: 25%;
+}
