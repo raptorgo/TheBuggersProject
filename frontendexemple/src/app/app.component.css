@@ -122,6 +122,15 @@ mat-sidenav {
   }
 }
 
+app-home{
+  width: 100%;
+}
+
+
+
+
+
+
 
 .darkBtn{
   color: black !important;

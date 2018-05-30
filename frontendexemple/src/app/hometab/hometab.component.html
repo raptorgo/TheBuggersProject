@@ -1,0 +1,77 @@
+
+
+<div>Esistono innumerevoli variazioni dei passaggi del Lorem Ipsum, ma la maggior parte hanno subito delle variazioni del tempo, a causa dell’inserimento di passaggi ironici, o di sequenze casuali di caratteri palesemente poco verosimili. Se si decide di utilizzare un passaggio del Lorem Ipsum, è bene essere certi che non contenga nulla di imbarazzante. In genere, i generatori di testo segnaposto disponibili su internet tendono a ripetere paragrafi predefiniti, rendendo questo il primo vero generatore automatico su intenet. Infatti utilizza un dizionario di oltre 200 vocaboli latini, combinati con un insieme di modelli di strutture di periodi, per generare passaggi di testo verosimili. Il testo così generato è sempre privo di ripetizioni, parole imbarazzanti o fuori luogo ecc.</div>
+
+
+
+
+<!--<mat-horizontal-stepper [linear]="isLinear" #stepper="matHorizontalStepper">-->
+  <!--<mat-step [stepControl]="firstFormGroup">-->
+    <!--<form [formGroup]="firstFormGroup">-->
+      <!--<ng-template matStepLabel></ng-template>-->
+      <!--<mat-form-field>-->
+        <!--<input matInput placeholder="User Name" formControlName="firstCtrl" required [(ngModel)]="nome">-->
+      <!--</mat-form-field>-->
+      <!--<div>-->
+        <!--<button mat-button matStepperNext>Next</button>-->
+      <!--</div>-->
+    <!--</form>-->
+  <!--</mat-step>-->
+  <!--<mat-step [stepControl]="secondFormGroup">-->
+    <!--<form [formGroup]="secondFormGroup">-->
+      <!--<ng-template matStepLabel></ng-template>-->
+      <!--<mat-form-field>-->
+        <!--<input matInput placeholder="Password" formControlName="secondCtrl" required [(ngModel)]="pwd">-->
+      <!--</mat-form-field>-->
+      <!--<div>-->
+        <!--<button mat-button matStepperPrevious>Back</button>-->
+        <!--<button mat-button matStepperNext>Next</button>-->
+      <!--</div>-->
+    <!--</form>-->
+  <!--</mat-step>-->
+  <!--<mat-step>-->
+    <!--<ng-template matStepLabel>Done</ng-template>-->
+    <!--insert data-->
+    <!--<div>-->
+      <!--<button mat-button (click)="prova()">Login</button>-->
+      <!--<button mat-button (click)="stepper.reset()">Reset</button>-->
+    <!--</div>-->
+  <!--</mat-step>-->
+<!--</mat-horizontal-stepper>-->
+
+<mat-card class=" divForm">
+  <h3 class="login">Login</h3>
+  <mat-form-field class="inputForm">
+    <input  matInput placeholder="User name">
+  </mat-form-field>
+
+  <mat-form-field class="inputForm">
+    <input  matInput placeholder="password">
+  </mat-form-field>
+
+  <mat-checkbox>remember me</mat-checkbox>
+
+  <p class="forgotPassword">Forgot Password?</p>
+  <div style="text-align: center"><button class="buttonLogin" mat-raised-button color="primary">Login</button></div>
+
+  <div class="divMezzo">
+    <h4 class="center" style="margin-bottom: 0%">login</h4>
+    <p style="margin-top: 1%;" class="center">With your social media account</p>
+    <div style="padding-left: 25%">
+      <button mat-raised-button class="buttonTwitter"><img src="../../assets/twitter.Logo2.png" height="30" width="30"/>Twitter</button>
+      <button mat-raised-button class="buttonFacebook"><img src="assets/facebook-770688_960_720.png" height="30" width="30"/>Facebook</button>
+      <button mat-raised-button class="buttonGoogle"><img src="../../assets/goggle+Logo.png" height="30" width="30"/>Google+</button>
+    </div>
+    <hr class="linea">
+    <div class="center">
+      <p class="block">Don't have an Account?</p>
+    </div>
+    <button mat-raised-button color="primary" class="buttonRegister">Register</button>
+
+  </div>
+</mat-card>
+<footer>
+
+    <mat-toolbar color='primary'>©The Buggers S.p.A. - Partita IVA:13378520152 </mat-toolbar>
+
+</footer>

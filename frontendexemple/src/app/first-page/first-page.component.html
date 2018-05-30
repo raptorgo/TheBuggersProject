@@ -1,0 +1,25 @@
+<div id="particlesJs">
+
+  <h3 style="margin-top: 0px">Società per controllo</h3>
+  <h1>tradizione e innovazione</h1>
+
+
+  <mat-card class="divForm">
+    <h4 class="login">Accedi</h4>
+    <mat-form-field class="inputForm">
+      <input matInput placeholder="User name" [(ngModel)]="nome">
+    </mat-form-field>
+
+    <mat-form-field class="inputForm">
+      <input type="password" matInput placeholder="Password" [(ngModel)]="pwd">
+    </mat-form-field>
+
+    <mat-checkbox>Remember me</mat-checkbox>
+
+
+    <div style="text-align: center">
+      <button class="buttonLogin" mat-raised-button color="primary" (click)="prova()">Login</button>
+    </div>
+  </mat-card>
+
+</div>

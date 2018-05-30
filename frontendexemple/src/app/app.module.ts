@@ -3,11 +3,12 @@ import {NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {RouterModule, Routes} from '@angular/router';
+import { AgmCoreModule } from '@agm/core';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import {AppComponent} from './app.component';
-
+import {MatStepperModule} from '@angular/material/stepper';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import 'hammerjs';
 import {SensorDialogComponent} from './sensor-dialog/sensor-dialog.component';
@@ -51,6 +52,11 @@ import {
   HAMMER_GESTURE_CONFIG,
 } from '@angular/platform-browser';
 import {ApiService} from './services/api.service';
+import { HomeComponent } from './tab/tab.component';
+import { HometabComponent } from './chiSiamo/chiSiamo.component';
+import { ContattiComponent } from './contatti/contatti.component';
+import { FirstPageComponent } from './first-page/first-page.component';
+import { ChangeDataComponent } from './change-data/change-data.component';
 
 export class MyHammerConfig extends HammerGestureConfig  {
   buildHammer(element: HTMLElement) {
@@ -60,6 +66,7 @@ export class MyHammerConfig extends HammerGestureConfig  {
     return mc;
   }
 }
+
 
 @NgModule({
   declarations: [
@@ -71,6 +78,12 @@ export class MyHammerConfig extends HammerGestureConfig  {
     AdminComponent,
     MachineDialogComponent,
     ProfileSettingsComponent,
+    HomeComponent,
+    HometabComponent,
+    ContattiComponent,
+    FirstPageComponent,
+    ChangeDataComponent
+
   ],
   imports: [
     RouterModule.forRoot(
@@ -85,6 +98,12 @@ export class MyHammerConfig extends HammerGestureConfig  {
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    ReactiveFormsModule,
+    AgmCoreModule.forRoot({
+      // please get your own API key here:
+      // https://developers.google.com/maps/documentation/javascript/get-api-key?hl=en
+      apiKey: 'AIzaSyCkZkB8edB9Wgps3ypIsNBnLD8u1eTM2ws'
+    }),
 
     // Material
     MatButtonModule,
@@ -100,6 +119,7 @@ export class MyHammerConfig extends HammerGestureConfig  {
     MatTabsModule,
     MatToolbarModule,
     MatGridListModule,
+    MatButtonToggleModule,
     // Flex-layout
     FlexLayoutModule,
     MatButtonToggleModule,

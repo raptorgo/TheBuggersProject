@@ -1,5 +1,5 @@
 <div fxLayout="column" fxFlex [class.dark-theme]="isDarkTheme" [class.candy-theme]="isCandyTheme">
-  <mat-toolbar color="primary">
+  <!--<mat-toolbar color="primary">-->
 
     <mat-toolbar-row [ngClass]="themeColor">
       <button mat-icon-button (click)="sidenav.toggle()">
@@ -34,7 +34,7 @@
 
   <mat-sidenav-container fxFlex (swipeleft)="sidenav.close()" (swiperight)="sidenav.open()">
 
-    <mat-sidenav id="sidenav" mode="side" #sidenav opened (swipeleft)="sidenav.close()" (swiperight)="sidenav.open()">
+    <!--<mat-sidenav id="sidenav" mode="side" #sidenav opened (swipeleft)="sidenav.close()" (swiperight)="sidenav.open()">-->
 
       <div id="mobileSettings" class="button-row" *ngIf="isCostumazies">
         <!--(click)="setColor('blue')"-->
@@ -141,4 +141,5 @@
       <button mat-menu-item>Esci</button>
     </mat-menu>
   </div>
-</div>
+<!--</div>-->
+<app-home></app-home>

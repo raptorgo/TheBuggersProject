@@ -1,0 +1,16 @@
+mat-tab-group{
+  width: 100%;
+}
+
+.tab{
+  margin-top: 1.6%;
+  border: 1px solid lightgray;
+}
+.minitab{
+  margin-left: 32%;
+}
+
+.immagine{
+  background-image: url(http://www.gmb-engineering.it/img/terminal1.jpg);
+
+}
