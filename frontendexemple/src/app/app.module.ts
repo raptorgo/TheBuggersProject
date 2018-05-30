@@ -1,14 +1,27 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {FormsModule} from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
+import {RouterModule, Routes} from '@angular/router';
 
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
-import { AppComponent } from './app.component';
-import { DialogComponent } from './dialog/dialog.component';
+import {AppComponent} from './app.component';
 
-import { FlexLayoutModule } from '@angular/flex-layout';
+import {FlexLayoutModule} from '@angular/flex-layout';
+import 'hammerjs';
+import {SensorDialogComponent} from './sensor-dialog/sensor-dialog.component';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {ChartsModule} from 'ng2-charts/ng2-charts';
+import {InfoDialogComponent} from './info-dialog/info-dialog.component';
+import {ReportComponent} from './report/report.component';
+import {DashboardComponent} from './dashboard/dashboard.component';
+import { AdminComponent } from './admin/admin.component';
+import {SortablejsModule} from 'angular-sortablejs';
+import {ProfileSettingsComponent} from './profile-settings/profile-settings.component';
+import { MachineDialogComponent } from './machine-dialog/machine-dialog.component';
+import {SocketService} from './services/socket.service';
+import {Ng2GoogleChartsModule} from 'ng2-google-charts';
 
 import {
   MatButtonModule,
@@ -24,20 +37,50 @@ import {
   MatSlideToggleModule,
   MatGridListModule,
   MatTabsModule,
-  MatToolbarModule
+  MatToolbarModule, MatButtonToggle, MatButtonToggleModule, MatButtonToggleGroup, MatAccordion,
 } from '@angular/material';
 
-import 'hammerjs';
-import { DialogExempleComponent } from './dialog-exemple/dialog-exemple.component';
+const appRoutes: Routes = [
+  {path: '', redirectTo: 'dashboard', pathMatch: 'prefix' },
+  {path: 'dashboard', component: DashboardComponent},
+  {path: 'dashboard/modifica-profilo', component: ProfileSettingsComponent},
+  {path: 'admin', component: AdminComponent}
+];
+import {
+  HammerGestureConfig,
+  HAMMER_GESTURE_CONFIG,
+} from '@angular/platform-browser';
+import {ApiService} from './services/api.service';
 
+export class MyHammerConfig extends HammerGestureConfig  {
+  buildHammer(element: HTMLElement) {
+    let mc = new Hammer(element, {
+      touchAction: "pan-y"
+    });
+    return mc;
+  }
+}
 
 @NgModule({
   declarations: [
     AppComponent,
-    DialogComponent,
-    DialogExempleComponent,
+    SensorDialogComponent,
+    InfoDialogComponent,
+    ReportComponent,
+    DashboardComponent,
+    AdminComponent,
+    MachineDialogComponent,
+    ProfileSettingsComponent,
   ],
   imports: [
+    RouterModule.forRoot(
+      appRoutes,
+      {
+        // useHash: true
+      }
+    ),
+    MatInputModule,
+    ChartsModule,
     BrowserModule,
     FormsModule,
     HttpClientModule,
@@ -49,7 +92,6 @@ import { DialogExempleComponent } from './dialog-exemple/dialog-exemple.componen
     MatCheckboxModule,
     MatDialogModule,
     MatIconModule,
-    MatInputModule,
     MatListModule,
     MatMenuModule,
     MatSelectModule,
@@ -59,10 +101,23 @@ import { DialogExempleComponent } from './dialog-exemple/dialog-exemple.componen
     MatToolbarModule,
     MatGridListModule,
     // Flex-layout
-    FlexLayoutModule
+    FlexLayoutModule,
+    MatButtonToggleModule,
+    MatExpansionModule,
+    SortablejsModule.forRoot({ animation: 500 }),
+    SortablejsModule,
+    Ng2GoogleChartsModule
   ],
-  providers: [],
-  entryComponents: [DialogComponent, DialogExempleComponent],
+  providers: [
+    ApiService,
+    SocketService,
+    {
+    provide: HAMMER_GESTURE_CONFIG,
+    useClass: MyHammerConfig,
+  }
+  ],
+  entryComponents: [MachineDialogComponent],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

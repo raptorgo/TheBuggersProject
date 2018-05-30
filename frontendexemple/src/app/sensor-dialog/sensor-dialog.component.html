@@ -1,0 +1,93 @@
+<mat-accordion style="margin-top: 2%; margin-left: 2%; margin-right: 2%">
+  <div fxLayout="column" style="margin-bottom: 2%;">
+    <div fxLayout="row" fxLayout.xs ="column">
+      <div fxFlex="70%" fxFlex.xs="100%" fxLayout.xs="column" style="display: block">
+        <!--<canvas baseChart-->
+                <!--[data]="pieChartData"-->
+                <!--[labels]="pieChartLabels"-->
+                <!--[options]="pieChartOptions"-->
+                <!--[chartType]="pieChartType"-->
+                <!--(chartHover)="chartHovered($event)"-->
+                <!--(chartClick)="chartClicked($event)"></canvas>-->
+
+        <!--<google-chart #cchart [data]="columnChartData2"></google-chart>-->
+        <!--<input type="button" value="Change data" (click)="changeData2()">-->
+        <google-chart style="margin: auto;" #cchart (chartReady)='ready($event)' (chartError)='error($event)' [data]="pieChartData1"></google-chart>
+
+        <!--<google-chart style="margin: auto;" [data]="lineChartData"></google-chart>-->
+
+
+      </div>
+      <div fxFlex="30%" fxFlex.xs="100%" fxLayout.xs="column" class="infoChartMobile">
+        <div fxLayout="column">
+          <div fxLayout="row">
+            <h3>Ultimi Dati</h3>
+          </div>
+          <div fxLayout="row">
+            ciaooo
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <mat-expansion-panel (opened)="true" *ngFor="let s of sensorList">
+  <mat-expansion-panel-header>
+  <mat-panel-title>
+    <h3>{{s}}</h3>
+  </mat-panel-title>
+  </mat-expansion-panel-header>
+    <div>
+      <mat-button-toggle-group #group="matButtonToggleGroup" [(ngModel)]="selected">
+        <mat-button-toggle value="Line Chart">Line Chart</mat-button-toggle>
+        <mat-button-toggle value="Bar Chart">Bar Chart</mat-button-toggle>
+      </mat-button-toggle-group>
+    </div>
+
+    <!--<div>-->
+      <!--<mat-form-field>-->
+        <!--<mat-select [(value)]='fSelected' [multiple]="true">-->
+          <!--<mat-option value="Last Day">-->
+            <!--Last Day-->
+          <!--</mat-option>-->
+          <!--<mat-option value="Last Week">-->
+            <!--Last Week-->
+          <!--</mat-option>-->
+          <!--<mat-option value="Last Month">-->
+            <!--Last Month-->
+          <!--</mat-option>-->
+          <!--<mat-option value="Last Year">-->
+            <!--Last Year-->
+          <!--</mat-option>-->
+        <!--</mat-select>-->
+      <!--</mat-form-field>-->
+    <!--</div>-->
+
+    <div>
+      <canvas *ngIf="group.value == 'Bar Chart'" baseChart
+              [datasets]="barChartData"
+              [labels]="barChartLabels"
+              [options]="barChartOptions"
+              [legend]="barChartLegend"
+              [chartType]="barChartType"
+              (chartHover)="chartHovered($event)"
+              (chartClick)="chartClicked($event)">
+      </canvas>
+    </div>
+    <div style="margin-top: 1%">
+      <google-chart *ngIf="group.value == 'Line Chart'" [data]="lineChartData"></google-chart>
+
+      <!--<canvas *ngIf="group.value == 'Line Chart'" baseChart width="400" height="400"-->
+              <!--[datasets]="barChartData"-->
+              <!--[labels]="lineChartLabels"-->
+              <!--[options]="lineChartOptions"-->
+              <!--[colors]="lineChartColors"-->
+              <!--[legend]="lineChartLegend"-->
+              <!--[chartType]="lineChartType"-->
+              <!--(chartHover)="chartHovered($event)"-->
+              <!--(chartClick)="chartClicked($event)">-->
+      <!--</canvas>-->
+    </div>
+  </mat-expansion-panel>
+</mat-accordion>
