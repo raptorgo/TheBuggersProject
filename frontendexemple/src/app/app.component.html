@@ -67,37 +67,36 @@
       </mat-card>
       <mat-nav-list style="height: 100%">
         <!--<mat-list style="padding-top: 4%; padding-bottom: 4%;">-->
-          <mat-accordion>
+        <mat-accordion displayMode="flat">
+          <div *ngFor="let user of users">
+
             <mat-expansion-panel #expe (click)="top()" (click)="expe.close()" [expanded]="false" [hideToggle]="true">
               <mat-expansion-panel-header class="listItem">
                 <mat-panel-title>
-                  <!--{{users[0].name }}-->
                   ciao
                 </mat-panel-title>
               </mat-expansion-panel-header>
-              <!--<mat-form-field>-->
-                <!--<input matInput placeholder="First name">-->
-              <!--</mat-form-field>-->
             </mat-expansion-panel>
-            <div *ngFor="let user of users">
-              <mat-expansion-panel class="listItem">
-                <mat-expansion-panel-header>
-                  <mat-panel-title>
-                    {{user.name}}
-                  </mat-panel-title>
-                </mat-expansion-panel-header>
 
-                <mat-form-field>
-                  <input matInput placeholder="First name">
-                </mat-form-field>
-              </mat-expansion-panel>
-            </div>
-          </mat-accordion>
-          <!--<mat-list-item class="listItem">Item 1</mat-list-item>-->
-          <!--<mat-divider></mat-divider>-->
-          <!--<mat-list-item class="listItem">Item 2</mat-list-item>-->
-          <!--<mat-divider></mat-divider>-->
-          <!--<mat-list-item class="listItem">Item 3</mat-list-item>-->
+            <mat-expansion-panel class="listItem">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  {{user.name}}
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <mat-list (disableRipple)="false">
+                <mat-list-item>Verniciatura</mat-list-item>
+                <mat-list-item>Forni</mat-list-item>
+                <mat-list-item>Trasportatore</mat-list-item>
+              </mat-list>
+            </mat-expansion-panel>
+          </div>
+        </mat-accordion>
+        <!--<mat-list-item class="listItem">Item 1</mat-list-item>-->
+        <!--<mat-divider></mat-divider>-->
+        <!--<mat-list-item class="listItem">Item 2</mat-list-item>-->
+        <!--<mat-divider></mat-divider>-->
+        <!--<mat-list-item class="listItem">Item 3</mat-list-item>-->
         <!--</mat-list>-->
 
         <mat-card>
@@ -142,3 +141,5 @@
     </mat-menu>
   </div>
 </div>
+
+<!--<app-home></app-home>-->

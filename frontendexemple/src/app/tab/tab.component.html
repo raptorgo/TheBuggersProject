@@ -1,0 +1,19 @@
+<div fxLayout="column" style="width: 100%">
+  <mat-toolbar fxLayout="row" fxLayout.xs="column" style=" background-color: grey">
+    <div fxFlex="40%" fxLayout.xs="row">
+      Logo
+    </div>
+    <mat-button-toggle-group #group="matButtonToggleGroup" value="home" fxLayout.xs="row" style="box-shadow: none">
+      <mat-button-toggle value="home">Home</mat-button-toggle>
+      <mat-button-toggle value="contatti">Contatti</mat-button-toggle>
+    </mat-button-toggle-group>
+  </mat-toolbar>
+  <div *ngIf="group.value=='home'" fxLayout="row">
+    <app-first-page style="width: 100%"></app-first-page>
+  </div>
+  <div *ngIf="group.value=='contatti'" fxLayout="row">
+   <app-contatti style="width: 100%" class="immagine" ></app-contatti>
+  </div>
+</div>
+
+

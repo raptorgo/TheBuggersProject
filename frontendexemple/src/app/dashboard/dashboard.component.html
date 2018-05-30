@@ -6,15 +6,25 @@
       </mat-panel-title>
     </mat-expansion-panel-header>
     <div fxLayout="column">
+
       <div fxLayout="row">
         <div fxFlex="100%">
-          <google-chart [data]="lineChartData"></google-chart>
+          <google-chart #lchart [data]="lineChartData"></google-chart>
         </div>
       </div>
+
       <div fxLayout="row" fxLayout.xs="column" style="margin-top: 5%">
         <div fxFlex="50%" fxLayout.xs="row" style="margin-left: 5%;">
-          <google-chart [data]="gaugeChartData"></google-chart>
+          <div fxLayout="column">
+            <div fxLayout="row">
+              <h3>Consumo Istantaneo - mAh</h3>
+            </div>
+            <div fxLayout="row">
+              <google-chart #cchart [data]="gaugeChartData"></google-chart>
+            </div>
+          </div>
         </div>
+
         <div fxFlex="50%" fxLayout.xs="row">
           <div fxLayout="column">
             <div fxLayout="row">
