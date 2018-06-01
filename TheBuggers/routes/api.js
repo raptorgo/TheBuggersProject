@@ -7,6 +7,7 @@ var sensors = require("./sensors")
 var iot = require("./iot")
 var machines = require("./machines")
 var sectors = require("./sectors")
+var sections = require("./sections")
 var router = express.Router()
 
 router.use('/auth', auth)
@@ -15,6 +16,7 @@ router.use('/sensors', sensors)
 router.use('/iot', iot)
 router.use('/machines', machines)
 router.use('/sectors', sectors)
+router.use('/sections', sections)
 
 router.get('/', function(req, res, next) {
   influx.measurement()

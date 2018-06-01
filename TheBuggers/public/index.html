@@ -1,1 +1,33 @@
-<!doctype html><html><head><meta charset="utf-8"><title>Angular Material Start</title><base href="./"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" type="image/x-icon" href="favicon.ico"><link href="styles.767dc8ed1a429a5cf55b.bundle.css" rel="stylesheet"/></head><body><app-root>Loading...</app-root><script type="text/javascript" src="inline.318b50c57b4eba3d437b.bundle.js"></script><script type="text/javascript" src="polyfills.b827cff845c3dfcf137e.bundle.js"></script><script type="text/javascript" src="scripts.1d3c093d0c3d8f661c23.bundle.js"></script><script type="text/javascript" src="main.6cc5cf4718be419da56c.bundle.js"></script></body></html>
+<!doctype html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>The Buggers</title>
+    <!-- Including Jquery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <!-- Including Socket.io -->
+    <script src="socket.io.js"></script>
+    <script>
+        // Connecting to the IO server
+        /*var socket = io.connect('http://localhost:3000/company12');
+        // On 'Welcome' message we print 'A USER ENTERED'
+        socket.on('message', function (socket) {
+            $('body').append("<p>A USER ENTERED</p>");
+        });*/
+    </script>
+</head>
+
+<body>
+    <p>Esempio di una semplice comunicazione<br>Client (HTML+JS) <> Server (NodeJS)</p>
+    <form method="POST" action="/login">
+        <input type="text" name="email">
+        <input type="text" name="password">
+        <input type="submit" name="password" value="submit">
+    </form>
+</body>
+
+</html>

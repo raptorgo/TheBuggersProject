@@ -8,19 +8,10 @@ var router = express.Router();
 router.get('/company/:id', function (req, res, next) {
     res.json([{
         "id": 1,
-        "name": "Forno Braford"
+        "name": "Impianto Braford"
     }, {
         "id": 2,
         "name": "Impianto Angus"
-    }, {
-        "id": 3,
-        "name": "..."
-    }, {
-        "id": 4,
-        "name": "..."
-    }, {
-        "id": 5,
-        "name": "..."
     }])
 });
 // Get sector from ID
