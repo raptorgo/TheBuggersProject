@@ -1,7 +1,8 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, ViewChild} from '@angular/core';
 import {MatDialog} from '@angular/material';
 import {SortablejsOptions} from 'angular-sortablejs';
 import {MachineDialogComponent} from '../machine-dialog/machine-dialog.component';
+import {SocketService} from '../services/socket.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,6 +10,8 @@ import {MachineDialogComponent} from '../machine-dialog/machine-dialog.component
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
+  @ViewChild('cchart') cchart;
+  @ViewChild('lchart') lchart;
   counter = 0;
   @Input () sortable: boolean;
   users = [
@@ -51,116 +54,21 @@ export class DashboardComponent implements OnInit {
       'Always hungry pelt around the house and up and down stairs chasing phantoms.',
       isAdmin: false,
       isCool: false
-    },
-    {
-      name: '5',
-      avatar: 'Macchina 5',
-      details: 'Webtwo ipsum dolor sit amet, eskobo chumby doostang bebo. Bubbli greplin stypi prezi mzinga heroku ' +
-      'wakoopa, shopify airbnb dogster dopplr gooru jumo, reddit plickers edmodo stypi zillow etsy.',
-      isAdmin: false,
-      isCool: true
-    },
-    {
-      name: '6',
-      avatar: 'Macchina 6',
-      details: 'Lebowski ipsum yeah? What do you think happens when you get rad? You turn in your library card? ' +
-      'Get a new driver\'s license? Stop being awesome? Dolor sit amet, consectetur adipiscing elit praesent ' +
-      'ac magna justo pellentesque ac lectus. You don\'t go out and make a living dressed like that in the ' +
-      'middle of a weekday. Quis elit blandit fringilla a ut turpis praesent felis ligula, malesuada suscipit ' +
-      'malesuada.',
-      isAdmin: true,
-      isCool: true
-    }, {
-      name: '7',
-      avatar: 'Macchina 7',
-      details: 'Lebowski ipsum yeah? What do you think happens when you get rad? You turn in your library card? ' +
-      'Get a new driver\'s license? Stop being awesome? Dolor sit amet, consectetur adipiscing elit praesent ' +
-      'ac magna justo pellentesque ac lectus. You don\'t go out and make a living dressed like that in the ' +
-      'middle of a weekday. Quis elit blandit fringilla a ut turpis praesent felis ligula, malesuada suscipit ' +
-      'malesuada.',
-      isAdmin: true,
-      isCool: true
-    }, {
-      name: '8',
-      avatar: 'Macchina 8',
-      details: 'Lebowski ipsum yeah? What do you think happens when you get rad? You turn in your library card? ' +
-      'Get a new driver\'s license? Stop being awesome? Dolor sit amet, consectetur adipiscing elit praesent ' +
-      'ac magna justo pellentesque ac lectus. You don\'t go out and make a living dressed like that in the ' +
-      'middle of a weekday. Quis elit blandit fringilla a ut turpis praesent felis ligula, malesuada suscipit ' +
-      'malesuada.',
-      isAdmin: true,
-      isCool: true
-    }, {
-      name: '9',
-      avatar: 'Macchina 9',
-      details: 'Lebowski ipsum yeah? What do you think happens when you get rad? You turn in your library card? ' +
-      'Get a new driver\'s license? Stop being awesome? Dolor sit amet, consectetur adipiscing elit praesent ' +
-      'ac magna justo pellentesque ac lectus. You don\'t go out and make a living dressed like that in the ' +
-      'middle of a weekday. Quis elit blandit fringilla a ut turpis praesent felis ligula, malesuada suscipit ' +
-      'malesuada.',
-      isAdmin: true,
-      isCool: true
-    }, {
-      name: '10',
-      avatar: 'Macchina 10',
-      details: 'Lebowski ipsum yeah? What do you think happens when you get rad? You turn in your library card? ' +
-      'Get a new driver\'s license? Stop being awesome? Dolor sit amet, consectetur adipiscing elit praesent ' +
-      'ac magna justo pellentesque ac lectus. You don\'t go out and make a living dressed like that in the ' +
-      'middle of a weekday. Quis elit blandit fringilla a ut turpis praesent felis ligula, malesuada suscipit ' +
-      'malesuada.',
-      isAdmin: true,
-      isCool: true
-    }, {
-      name: '11',
-      avatar: 'Macchina 11',
-      details: 'Lebowski ipsum yeah? What do you think happens when you get rad? You turn in your library card? ' +
-      'Get a new driver\'s license? Stop being awesome? Dolor sit amet, consectetur adipiscing elit praesent ' +
-      'ac magna justo pellentesque ac lectus. You don\'t go out and make a living dressed like that in the ' +
-      'middle of a weekday. Quis elit blandit fringilla a ut turpis praesent felis ligula, malesuada suscipit ' +
-      'malesuada.',
-      isAdmin: true,
-      isCool: true
-    }, {
-      name: '12',
-      avatar: 'Macchina 12',
-      details: 'Lebowski ipsum yeah? What do you think happens when you get rad? You turn in your library card? ' +
-      'Get a new driver\'s license? Stop being awesome? Dolor sit amet, consectetur adipiscing elit praesent ' +
-      'ac magna justo pellentesque ac lectus. You don\'t go out and make a living dressed like that in the ' +
-      'middle of a weekday. Quis elit blandit fringilla a ut turpis praesent felis ligula, malesuada suscipit ' +
-      'malesuada.',
-      isAdmin: true,
-      isCool: true
-    }, {
-      name: '13',
-      avatar: 'Macchina 13',
-      details: 'Lebowski ipsum yeah? What do you think happens when you get rad? You turn in your library card? ' +
-      'Get a new driver\'s license? Stop being awesome? Dolor sit amet, consectetur adipiscing elit praesent ' +
-      'ac magna justo pellentesque ac lectus. You don\'t go out and make a living dressed like that in the ' +
-      'middle of a weekday. Quis elit blandit fringilla a ut turpis praesent felis ligula, malesuada suscipit ' +
-      'malesuada.',
-      isAdmin: true,
-      isCool: true
-    }, {
-      name: '14',
-      avatar: 'Macchina 14',
-      details: 'Lebowski ipsum yeah? What do you think happens when you get rad? You turn in your library card? ' +
-      'Get a new driver\'s license? Stop being awesome? Dolor sit amet, consectetur adipiscing elit praesent ' +
-      'ac magna justo pellentesque ac lectus. You don\'t go out and make a living dressed like that in the ' +
-      'middle of a weekday. Quis elit blandit fringilla a ut turpis praesent felis ligula, malesuada suscipit ' +
-      'malesuada.',
-      isAdmin: true,
-      isCool: true
     }
   ];
   selected: string = "Line Chart";
   public lineChartData: any =  {
     chartType: 'LineChart',
+    // dataTable: [
+    //   ['Year', ''],
+    //   ['2004',  1000],
+    //   ['2005',  1170],
+    //   ['2006',  660],
+    //   ['2007',  1030]
+    // ],
     dataTable: [
-      ['Year', 'Sales', 'Expenses'],
-      ['2004',  1000,      400],
-      ['2005',  1170,      460],
-      ['2006',  660,       1120],
-      ['2007',  1030,      540]
+      ['Year', ''],
+      ['2004',  1000]
     ],
     options: {title: 'Company Performance'}
   };
@@ -168,9 +76,14 @@ export class DashboardComponent implements OnInit {
     chartType: 'Gauge',
     dataTable: [
       ['Label', 'Value'],
-      ['Temperatura', 60]
+      ['', 60]
     ],
     options: {
+        redFrom: 90, redTo: 100,
+        yellowFrom: 75, yellowTo: 90,
+        minorTicks: 2,
+        min: 400,
+        max: 600,
       animation: {
         duration: 1000,
         easing: 'out'},
@@ -225,8 +138,13 @@ export class DashboardComponent implements OnInit {
   // trackByFn(index, item) {
   //   return index;
   // }
-  constructor(private dialog: MatDialog) {
+  constructor(private dialog: MatDialog, private socket: SocketService) {
     this.sort = this.sortable;
+    this.socket.onMessage().subscribe((data: any) => {
+      let dataTable = this.cchart.wrapper.getDataTable();
+      dataTable.setValue(0, 1, data[0].value);
+      this.cchart.redraw();
+    })
   }
 
   openDialog(item): void {

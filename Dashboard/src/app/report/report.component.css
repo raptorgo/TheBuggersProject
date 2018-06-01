@@ -1,0 +1,8 @@
+@media only screen and (max-width: 600px) {
+  .infoMobile {
+    margin-top: 10% !important;
+  }
+}
+.mat-tab-list{
+  width: 100% !important;
+}

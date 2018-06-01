@@ -26,13 +26,13 @@ export class SensorDialogComponent implements OnInit {
   public columnChartData2:any =  {
     chartType: 'ColumnChart',
     dataTable: [
-      ['Country', 'Performance'],
-      ['Germany', 0],
-      ['USA', 0],
-      ['Brazil', 0],
-      ['Canada', 0],
-      ['France', 0],
-      ['RU', 0]
+      ['Country', 'Performance', 'Profits'],
+      ['Germany', 0, 0],
+      ['USA', 0, 0],
+      ['Brazil', 0, 0],
+      ['Canada', 0, 0],
+      ['France', 0, 0],
+      ['RU', 0, 0]
     ],
     options: {
       title: 'Countries',
@@ -126,25 +126,22 @@ export class SensorDialogComponent implements OnInit {
   public pieChartLabels: string[] = ['Download Sales', 'In-Store Sales'];
   public pieChartData: number[] = [300, 500];
   public pieChartType: string = 'pie';
-  lineData = new Array();
-  lineData1 = new Array();
+
   constructor(private socket: SocketService) {
     this.selected = 'Line Chart';
     this.fSelected[0] = 'Last Day';
+  }
+  ready(event) {
     this.socket.onMessage().subscribe((data: any) => {
-      //Creare matrici
-      if (data[0].type = "Temperature" && data[0].machine_id == 1) {
-        this.lineData.push(data[0].value)
-      }
-      if (data[0].type = "Humidity" && data[0].machine_id == 1) {
-        this.lineData1.push(data[0].value)
-      }
       let dataTable = this.cchart.wrapper.getDataTable();
       dataTable.setValue(0, 1, data[0].value);
       this.cchart.redraw();
+      // this.pieChartData1.dataTable = Object.create(this.pieChartData1.dataTable);
+      // this.pieChartData1.dataTable[0][1] = 25
+      // this.cchart.redraw();
+      console.log('Old = ' + data);
+      console.log('New ' + data[0].value);
     })
-  }
-  ready(event) {
   }
 
   sensorList = ['Temperatura', 'Umidità'];
@@ -152,14 +149,17 @@ export class SensorDialogComponent implements OnInit {
   ngOnInit() {
 
   }
+
+
+
   lineChartData = {
     chartType: 'LineChart',
     dataTable: [
-      ['Year', 'Sales'],
-      ['2004', 1000],
-      ['2005', 1170],
-      ['2006', 660,],
-      ['2007', 1030]
+      ['Year', 'Sales', 'Expenses'],
+      ['2004', 1000, 400],
+      ['2005', 1170, 460],
+      ['2006', 660, 1120],
+      ['2007', 1030, 540]
     ],
     options: {
       height: 420,

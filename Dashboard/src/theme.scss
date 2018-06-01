@@ -1,0 +1,30 @@
+@import '~@angular/material/_theming';
+
+@include mat-core();
+
+$primary: mat-palette($mat-indigo);
+$accent: mat-palette($mat-blue-grey);
+
+$theme: mat-light-theme($primary, $accent);
+
+@include angular-material-theme($theme);
+
+.dark-theme {
+  $dark-primary: mat-palette($mat-light-blue);
+  $dark-accent: mat-palette($mat-green);
+
+  $dark-theme: mat-dark-theme($dark-primary, $dark-accent);
+
+  @include angular-material-theme($dark-theme);
+}
+
+.candy-theme{
+  $candy-app-primary: mat-palette($mat-indigo);
+  $candy-app-accent:  mat-palette($mat-pink, A200, A100, A400);
+  $candy-app-theme:   mat-dark-theme($candy-app-primary, $candy-app-accent);
+
+  @include angular-material-theme($candy-app-theme);
+}
+.blue-theme{
+  
+}

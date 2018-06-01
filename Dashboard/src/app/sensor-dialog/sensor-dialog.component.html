@@ -1,25 +1,34 @@
 <mat-accordion style="margin-top: 2%; margin-left: 2%; margin-right: 2%">
   <div fxLayout="column" style="margin-bottom: 2%;">
-    <!--<div fxLayout="row" fxLayout.xs ="column">-->
-      <!--<div fxFlex="70%" fxFlex.xs="100%" fxLayout.xs="column" style="display: block">-->
-       <!---->
-        <!--<google-chart style="margin: auto;" #cchart (chartReady)='ready($event)' (chartError)='error($event)' [data]="pieChartData1"></google-chart>-->
+    <div fxLayout="row" fxLayout.xs ="column">
+      <div fxFlex="70%" fxFlex.xs="100%" fxLayout.xs="column" style="display: block">
+        <!--<canvas baseChart-->
+                <!--[data]="pieChartData"-->
+                <!--[labels]="pieChartLabels"-->
+                <!--[options]="pieChartOptions"-->
+                <!--[chartType]="pieChartType"-->
+                <!--(chartHover)="chartHovered($event)"-->
+                <!--(chartClick)="chartClicked($event)"></canvas>-->
 
-        <!--&lt;!&ndash;<google-chart style="margin: auto;" [data]="lineChartData"></google-chart>&ndash;&gt;-->
+        <!--<google-chart #cchart [data]="columnChartData2"></google-chart>-->
+        <!--<input type="button" value="Change data" (click)="changeData2()">-->
+        <google-chart style="margin: auto;" #cchart (chartReady)='ready($event)' (chartError)='error($event)' [data]="pieChartData1"></google-chart>
+
+        <!--<google-chart style="margin: auto;" [data]="lineChartData"></google-chart>-->
 
 
-      <!--</div>-->
-      <!--<div fxFlex="30%" fxFlex.xs="100%" fxLayout.xs="column" class="infoChartMobile">-->
-        <!--<div fxLayout="column">-->
-          <!--<div fxLayout="row">-->
-            <!--<h3>Ultimi Dati</h3>-->
-          <!--</div>-->
-          <!--<div fxLayout="row">-->
-            <!--ciaooo-->
-          <!--</div>-->
-        <!--</div>-->
-      <!--</div>-->
-    <!--</div>-->
+      </div>
+      <div fxFlex="30%" fxFlex.xs="100%" fxLayout.xs="column" class="infoChartMobile">
+        <div fxLayout="column">
+          <div fxLayout="row">
+            <h3>Ultimi Dati</h3>
+          </div>
+          <div fxLayout="row">
+            ciaooo
+          </div>
+        </div>
+      </div>
+    </div>
 
   </div>
 
