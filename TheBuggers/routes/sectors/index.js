@@ -8,7 +8,7 @@ var router = express.Router();
 router.get('/company/:id', function (req, res, next) {
     res.json([{
         "id": 1,
-        "name": "Forno Braford"
+        "name": "Impianto Braford"
     }, {
         "id": 2,
         "name": "Impianto Angus"

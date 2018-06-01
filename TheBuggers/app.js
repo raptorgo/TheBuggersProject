@@ -36,6 +36,10 @@ app.use(express.static(path.join(__dirname, 'public')));
   });
   console.log("Creating: " + JSON.stringify(jwt));
   */
+  app.post('/posts', function(req, res) {
+    console.log("CIAOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO");
+    res.json({lol : true})
+  })
   app.post('/login', function(req, res) {
     /*var user = {
       is_admin : true,

@@ -6,8 +6,8 @@ var io = require('../../controllers/socket')
  * Routing for companies: GET PUT POST DELETE
  */
 // New sensor data
-router.get('/', function(req, res, next) { 
-    setInterval(() => {
+router.post('/', function(req, res, next) {
+    /*setInterval(() => {
         var temperature1 = [
             {   
                 timestamp : new Date(),
@@ -51,9 +51,19 @@ router.get('/', function(req, res, next) {
         ]
         
         io.emit(temperature1)
-        // io.emit(consumption)
-    }, 1000)
-    res.status(200).json({result: "iottt"})
+    }, 4000)
+    res.status(200).json({result: "iottt"})*/
+    console.log("ciao");
+    var temperature1 = [
+        {   
+            timestamp : new Date(),
+            type: "temperature",
+            machine_id: 1,
+            value: Math.random() * (600 - 400) + 400
+        }        
+    ]
+    io.emit(temperature1)
+    res.status(200).json({ok: true})
 });
 
 module.exports = router;
