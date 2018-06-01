@@ -1,0 +1,35 @@
+@media only screen and (max-width: 600px) {
+  /*#sidenav{*/
+  /*display: none;*/
+  /*}*/
+  #buttonProfile{
+    display: none;
+  }
+  .marginCard{
+    margin-bottom: 3%;
+    margin-left: 1%;
+    margin-right: 1%;
+  }
+  .marginContainerCard{
+    margin-left: 2%;
+    margin-right: 2%;
+    margin-top: 0% !important;
+  }
+}
+@media only screen and (min-width: 600px) {
+  .cdk-overlay-pane {
+
+  }
+  #buttonProfileMobile{
+    display: none;
+  }
+  .marginCard{
+    margin-left: 1%;
+    margin-right: 1%;
+  }
+  .marginContainerCard{
+    margin-left: 2%;
+    margin-right: 2%;
+    margin-top: 2%;
+  }
+}

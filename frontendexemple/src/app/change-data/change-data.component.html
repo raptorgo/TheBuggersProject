@@ -1,0 +1,50 @@
+
+<mat-card>
+  <h1 style="text-align: center">form di modifica sicurezza</h1>
+  <div *ngIf="prova==true">
+    <p style="text-align: center">per modificare i dati di accesso interagire con il pulsante</p>
+    <button class="changeButton" mat-button (click)="cambio()">change settings</button>
+  </div>
+  <div *ngIf="prova==false">
+    <div class="input">
+    <mat-form-field>
+      <input matInput placeholder="username">
+    </mat-form-field><br>
+    <mat-form-field>
+      <input type="password" matInput placeholder="password">
+    </mat-form-field><br>
+    <mat-form-field>
+      <input type="password" matInput placeholder="confirm password">
+    </mat-form-field><br>
+    </div>
+
+
+    <button class="changeButton" mat-button (click)="cambio()">SAVE</button>
+  </div>
+</mat-card>
+
+<mat-card>
+  <h1 style="text-align: center">form di modifica dati personali</h1>
+  <div *ngIf="prova2==true">
+    <p style="text-align: center">per modificare i dati di accesso interagire con il pulsante</p>
+    <button class="changeButton" mat-button (click)="cambio2()">change settings</button>
+  </div>
+  <div *ngIf="prova2==false">
+    <div class="input">
+      <mat-form-field>
+        <input matInput placeholder="username">
+      </mat-form-field><br>
+      <mat-form-field>
+        <input type="password" matInput placeholder="password">
+      </mat-form-field><br>
+      <mat-form-field>
+        <input type="password" matInput placeholder="confirm password">
+      </mat-form-field><br>
+    </div>
+
+
+    <button class="changeButton" mat-button (click)="cambio2()">SAVE</button>
+  </div>
+</mat-card>
+
+

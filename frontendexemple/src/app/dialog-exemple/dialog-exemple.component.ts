@@ -7,8 +7,13 @@ import {DialogComponent} from '../dialog/dialog.component';
   templateUrl: './dialog-exemple.component.html',
   styleUrls: ['./dialog-exemple.component.css']
 })
-export class DialogExempleComponent {
-
-  constructor(public dialogRef: MatDialogRef<DialogComponent>) { }
-
+export class DialogExempleComponent  {
+  sensorView: boolean;
+  infoView: boolean;
+  segnalView: boolean;
+  constructor() {
+    this.sensorView = true;
+    this.infoView = false;
+    this.segnalView = false;
+  }
 }

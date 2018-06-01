@@ -1,0 +1,57 @@
+#particlesJs{
+  background-image: url('/../../assets/image1.jpg');
+height: 100vh;
+  padding: 10% 10% 10% 37%;
+}
+
+h3{
+  margin: 0px;
+  font-family: 'Oswald', sans-serif;
+  font-size: 285%;
+  color: white;
+
+}
+
+h1{
+  font-family: 'Oswald', sans-serif;
+  font-size: 665%;
+  position: relative;
+  display: block;
+  margin: 0 0 0 -34%;
+  color: white;
+}
+
+.divForm{
+  margin: 5% 33%;
+  padding: 2%;
+  width: 66%;
+  margin-left: -10%;
+}
+
+.login{
+  text-align: center;
+}
+
+.inputForm{
+  width: 100%;
+}
+.forgotPassword{
+  display: inline-block;
+  margin-left: 48%;
+  color: red;
+  font-size: 84%;
+}
+
+.buttonLogin{
+  font-size: 79%;
+  color: white;
+  font-weight: bold;
+  margin-top: 9%;
+}
+
+
+h4{
+  color: #666666;
+  font-size: 209%;
+  margin-bottom: 4%;
+}

@@ -1,235 +1,146 @@
-<div fxLayout="column" fxFlex [class.dark-theme]="isDarkTheme">
+<!--<div fxLayout="column" fxFlex [class.dark-theme]="isDarkTheme" [class.candy-theme]="isCandyTheme">-->
+  <!--<mat-toolbar color="primary">-->
 
-  <mat-toolbar color="primary">
+    <!--<mat-toolbar-row [ngClass]="themeColor">-->
+      <!--<button mat-icon-button (click)="sidenav.toggle()">-->
+        <!--&lt;!&ndash;fxHide="false" fxHide.gt-sm&ndash;&gt;-->
+        <!--<mat-icon>menu</mat-icon>-->
+      <!--</button>-->
+      <!--<span routerLink="./" style="outline: none; cursor: pointer">Nome Azienda</span>-->
+      <!--&lt;!&ndash; Filler that pushes the menu button to the end of the toolbar &ndash;&gt;-->
+      <!--<span fxFlex style="text-align: center">-->
+        <!--<div id="desktopSettings" class="button-row" *ngIf="isCostumazies">-->
+          <!--&lt;!&ndash;(click)="setColor('blue')"&ndash;&gt;-->
+          <!--<button mat-mini-fab (click)="setColor('red')" style="background-color: red"-->
+                  <!--[disabled]="isDarkTheme"></button>-->
+          <!--<button mat-mini-fab (click)="isCandyTheme = !isCandyTheme" style="background-color: blue"-->
+                  <!--[disabled]="isDarkTheme"></button>-->
+          <!--<button mat-mini-fab (click)="setColor('yellow')" style="background-color: yellow"-->
+                  <!--[disabled]="isDarkTheme"></button>-->
+          <!--<button mat-mini-fab (click)="setColor('green')" style="background-color: green"-->
+                  <!--[disabled]="isDarkTheme"></button>-->
+          <!--<button mat-mini-fab (click)="isDarkTheme = !isDarkTheme" (click)="setColor('dark')" class="darkBtn">-->
+            <!--<i *ngIf="!isDarkTheme" class="material-icons">brightness_2</i>-->
+            <!--<i *ngIf="isDarkTheme" class="material-icons">wb_sunny</i>-->
+          <!--</button>-->
+          <!--<button mat-button (click)="toggle()"><i class="material-icons">close</i></button>-->
+        <!--</div>-->
+      <!--</span>-->
+      <!--<button mat-mini-fab color="primary" [matMenuTriggerFor]="profileMenu" id="buttonProfile">-->
+        <!--<i class="material-icons">settings</i>-->
+      <!--</button>-->
+    <!--</mat-toolbar-row>-->
+  <!--</mat-toolbar>-->
 
-    <mat-toolbar-row>
-      <button mat-icon-button (click)="sidenav.toggle()">
-        <!--fxHide="false" fxHide.gt-sm-->
-        <mat-icon>menu</mat-icon>
-      </button>
-      <span>Angular Material</span>
+  <!--<mat-sidenav-container fxFlex (swipeleft)="sidenav.close()" (swiperight)="sidenav.open()">-->
 
-      <!-- Filler that pushes the menu button to the end of the toolbar -->
-      <span fxFlex></span>
-      <button mat-mini-fab color="primary" [matMenuTriggerFor]="profileMenu" id="buttonProfile">
-        <i class="material-icons">settings</i>
-      </button>
-    </mat-toolbar-row>
-  </mat-toolbar>
+    <!--<mat-sidenav id="sidenav" mode="side" #sidenav opened (swipeleft)="sidenav.close()" (swiperight)="sidenav.open()">-->
 
+      <!--<div id="mobileSettings" class="button-row" *ngIf="isCostumazies">-->
+        <!--&lt;!&ndash;(click)="setColor('blue')"&ndash;&gt;-->
+        <!--<button mat-mini-fab (click)="setColor('red')" style="background-color: red" [disabled]="isDarkTheme"></button>-->
+        <!--<button mat-mini-fab (click)="isCandyTheme = !isCandyTheme" style="background-color: blue"-->
+                <!--[disabled]="isDarkTheme"></button>-->
+        <!--<button mat-mini-fab (click)="setColor('yellow')" style="background-color: yellow"-->
+                <!--[disabled]="isDarkTheme"></button>-->
+        <!--<button mat-mini-fab (click)="setColor('green')" style="background-color: green"-->
+                <!--[disabled]="isDarkTheme"></button>-->
+        <!--<button mat-mini-fab (click)="isDarkTheme = !isDarkTheme" (click)="setColor('dark')" class="darkBtn">-->
+          <!--<i *ngIf="!isDarkTheme" class="material-icons">brightness_2</i>-->
+          <!--<i *ngIf="isDarkTheme" class="material-icons">wb_sunny</i>-->
+        <!--</button>-->
+        <!--&lt;!&ndash;<button mat-mini-fab (click)="toggle()"><i class="material-icons">close</i></button>&ndash;&gt;-->
+        <!--<span fxFlex></span>-->
+        <!--<div style="margin-top: 2.5%; font-size: 30px !important;">-->
+          <!--<i class="material-icons" (click)="toggle()">close</i>-->
+        <!--</div>-->
+      <!--</div>-->
 
-  <mat-sidenav-container fxFlex>
+      <!--<mat-card>-->
+        <!--<div>-->
+          <!--<h2>Benvenuto Luca!</h2>-->
+          <!--<span fxFlex="40%;"></span>-->
+          <!--<button mat-mini-fab color="primary" [matMenuTriggerFor]="profileMenu" id="buttonProfileMobile">-->
+            <!--<i class="material-icons">settings</i>-->
+          <!--</button>-->
+        <!--</div>-->
+      <!--</mat-card>-->
+      <!--<mat-nav-list style="height: 100%">-->
+        <!--&lt;!&ndash;<mat-list style="padding-top: 4%; padding-bottom: 4%;">&ndash;&gt;-->
+        <!--<mat-accordion>-->
+          <!--<mat-expansion-panel #expe (click)="top()" (click)="expe.close()" [expanded]="false" [hideToggle]="true">-->
+            <!--<mat-expansion-panel-header class="listItem">-->
+              <!--<mat-panel-title>-->
+                <!--&lt;!&ndash;{{users[0].name }}&ndash;&gt;-->
+                <!--ciao-->
+              <!--</mat-panel-title>-->
+            <!--</mat-expansion-panel-header>-->
+            <!--&lt;!&ndash;<mat-form-field>&ndash;&gt;-->
+            <!--&lt;!&ndash;<input matInput placeholder="First name">&ndash;&gt;-->
+            <!--&lt;!&ndash;</mat-form-field>&ndash;&gt;-->
+          <!--</mat-expansion-panel>-->
+          <!--<div *ngFor="let user of users">-->
+            <!--<mat-expansion-panel class="listItem">-->
+              <!--<mat-expansion-panel-header>-->
+                <!--<mat-panel-title>-->
+                  <!--{{user.name}}-->
+                <!--</mat-panel-title>-->
+              <!--</mat-expansion-panel-header>-->
 
-    <mat-sidenav id="sidenav" mode="side" #sidenav opened (swipeleft)="sidenav.close()" (swiperight)="sidenav.open()">
+              <!--<mat-form-field>-->
+                <!--<input matInput placeholder="First name">-->
+              <!--</mat-form-field>-->
+            <!--</mat-expansion-panel>-->
+          <!--</div>-->
+        <!--</mat-accordion>-->
+        <!--&lt;!&ndash;<mat-list-item class="listItem">Item 1</mat-list-item>&ndash;&gt;-->
+        <!--&lt;!&ndash;<mat-divider></mat-divider>&ndash;&gt;-->
+        <!--&lt;!&ndash;<mat-list-item class="listItem">Item 2</mat-list-item>&ndash;&gt;-->
+        <!--&lt;!&ndash;<mat-divider></mat-divider>&ndash;&gt;-->
+        <!--&lt;!&ndash;<mat-list-item class="listItem">Item 3</mat-list-item>&ndash;&gt;-->
+        <!--&lt;!&ndash;</mat-list>&ndash;&gt;-->
 
-      <mat-card>
-        <div>
-          <h2>{{selectedUser.name}}</h2>
-          <span fxFlex="40%;"></span>
-          <button mat-mini-fab color="primary" [matMenuTriggerFor]="profileMenu" id="buttonProfileMobile">
-            <i class="material-icons">settings</i>
-          </button>
-        </div>
-        <!--<mat-icon svgIcon="avatars:{{selectedUser.avatar}}" class="avatar"></mat-icon>-->
-        <p>{{selectedUser.details}}</p>
-      </mat-card>
-      <mat-nav-list style="height: 100%">
-
-
-        <mat-list-item *ngFor="let user of users" (click)="selectedUser = user">
-          <mat-icon matListAvatar svgIcon="avatars:{{user.avatar}}" class="avatar"></mat-icon>
-          <span>{{user.name}}</span>
-        </mat-list-item>
-      </mat-nav-list>
-    </mat-sidenav>
-    <div (swipeleft)="sidenav.close()" (swiperight)="sidenav.open()">
-
-
-      <div fxLayout="row" fxLayout.xs="column" class="marginContainerCard">
-
-        <mat-card fxFlex="40%;" fxFlex.xs="80%" class="marginCard">
-          <mat-card-content>
-            <button mat-button (click)="openDialog()"> <h2>Left Card 1</h2> </button>
-          </mat-card-content>
-        </mat-card>
-
-        <mat-card fxFlex="40%;" fxFlex.xs="80%" class="marginCard">
-          <mat-card-content>
-            <h2>Left Card 2</h2>
-          </mat-card-content>
-        </mat-card>
-
-        <mat-card fxFlex="40%;" fxFlex.xs="80%" class="marginCard">
-          <mat-card-content>
-            <h2>Right Column </h2>
-          </mat-card-content>
-        </mat-card>
-
-      </div>
-
-      <div fxLayout="row" fxLayout.xs="column" class="marginContainerCard">
-
-        <mat-card fxFlex="40%;" fxFlex.xs="80%" class="marginCard">
-          <mat-card-content>
-            <h2>Left Card 1</h2>
-          </mat-card-content>
-        </mat-card>
-
-        <mat-card fxFlex="40%;" fxFlex.xs="80%" class="marginCard">
-          <mat-card-content>
-            <h2>Left Card 2</h2>
-          </mat-card-content>
-        </mat-card>
-
-        <mat-card fxFlex="40%;" fxFlex.xs="80%" class="marginCard">
-          <mat-card-content>
-            <h2>Right Column </h2>
-          </mat-card-content>
-        </mat-card>
-
-      </div>
-
-      <div fxLayout="row" fxLayout.xs="column" class="marginContainerCard">
-
-        <mat-card fxFlex="40%;" fxFlex.xs="80%" class="marginCard">
-          <mat-card-content>
-            <h2>Left Card 1</h2>
-          </mat-card-content>
-        </mat-card>
-
-        <mat-card fxFlex="40%;" fxFlex.xs="80%" class="marginCard">
-          <mat-card-content>
-            <h2>Left Card 2</h2>
-          </mat-card-content>
-        </mat-card>
-
-        <mat-card fxFlex="40%;" fxFlex.xs="80%" class="marginCard">
-          <mat-card-content>
-            <h2>Right Column </h2>
-          </mat-card-content>
-        </mat-card>
-
-      </div>
-
-      <div fxLayout="row" fxLayout.xs="column" class="marginContainerCard">
-
-        <mat-card fxFlex="40%;" fxFlex.xs="80%" class="marginCard">
-          <mat-card-content>
-            <h2>Left Card 1</h2>
-          </mat-card-content>
-        </mat-card>
-
-        <mat-card fxFlex="40%;" fxFlex.xs="80%" class="marginCard">
-          <mat-card-content>
-            <h2>Left Card 2</h2>
-          </mat-card-content>
-        </mat-card>
-
-        <mat-card fxFlex="40%;" fxFlex.xs="80%" class="marginCard">
-          <mat-card-content>
-            <h2>Right Column </h2>
-          </mat-card-content>
-        </mat-card>
-
-      </div>
-
-      <div fxLayout="row" fxLayout.xs="column" class="marginContainerCard">
-
-        <mat-card fxFlex="40%;" fxFlex.xs="80%" class="marginCard">
-          <mat-card-content>
-            <h2>Left Card 1</h2>
-          </mat-card-content>
-        </mat-card>
-
-        <mat-card fxFlex="40%;" fxFlex.xs="80%" class="marginCard">
-          <mat-card-content>
-            <h2>Left Card 2</h2>
-          </mat-card-content>
-        </mat-card>
-
-        <mat-card fxFlex="40%;" fxFlex.xs="80%" class="marginCard">
-          <mat-card-content>
-            <h2>Right Column </h2>
-          </mat-card-content>
-        </mat-card>
-
-      </div>
-
-      <div fxLayout="row" fxLayout.xs="column" class="marginContainerCard">
-
-        <mat-card fxFlex="40%;" fxFlex.xs="80%" class="marginCard">
-          <mat-card-content>
-            <h2>Left Card 1</h2>
-          </mat-card-content>
-        </mat-card>
-
-        <mat-card fxFlex="40%;" fxFlex.xs="80%" class="marginCard">
-          <mat-card-content>
-            <h2>Left Card 2</h2>
-          </mat-card-content>
-        </mat-card>
-
-        <mat-card fxFlex="40%;" fxFlex.xs="80%" class="marginCard">
-          <mat-card-content>
-            <h2>Right Column </h2>
-          </mat-card-content>
-        </mat-card>
-
-      </div>
-
-      <div fxLayout="row" fxLayout.xs="column" class="marginContainerCard">
-
-        <mat-card fxFlex="40%;" fxFlex.xs="80%" class="marginCard">
-          <mat-card-content>
-            <h2>Left Card 1</h2>
-          </mat-card-content>
-        </mat-card>
-
-        <mat-card fxFlex="40%;" fxFlex.xs="80%" class="marginCard">
-          <mat-card-content>
-            <h2>Left Card 2</h2>
-          </mat-card-content>
-        </mat-card>
-
-        <mat-card fxFlex="40%;" fxFlex.xs="80%" class="marginCard">
-          <mat-card-content>
-            <h2>Right Column </h2>
-          </mat-card-content>
-        </mat-card>
-
-      </div>
-    </div>
-  </mat-sidenav-container>
+        <!--<mat-card>-->
+          <!--<div>-->
+            <!--<h5>© 2018, The Bugger</h5>-->
+          <!--</div>-->
+        <!--</mat-card>-->
+      <!--</mat-nav-list>-->
+    <!--</mat-sidenav>-->
+    <!--<div fxLayout="column" (swipeleft)="sidenav.close()" (swiperight)="sidenav.open()">-->
+      <!--<router-outlet></router-outlet>-->
+    <!--</div>-->
+  <!--</mat-sidenav-container>-->
 
 
-  <button mat-fab (click)="openAdminDialog()" class="fab-bottom-right">
-  <mat-icon>add</mat-icon>
-  </button>
+  <!--&lt;!&ndash;Footerrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr&ndash;&gt;-->
 
-  <footer>
-    <mat-toolbar color='primary'>
-      <span></span>
-      <h3>© Copyright</h3>
-      <span fxFlex></span>
+  <!--&lt;!&ndash;<footer>&ndash;&gt;-->
+  <!--&lt;!&ndash;<mat-toolbar color='primary'>&ndash;&gt;-->
+  <!--&lt;!&ndash;<mat-toolbar-row [ngClass]="themeColor">&ndash;&gt;-->
+  <!--&lt;!&ndash;<span></span>&ndash;&gt;-->
+  <!--&lt;!&ndash;<h3>© Copyright</h3>&ndash;&gt;-->
+  <!--&lt;!&ndash;<span fxFlex></span>&ndash;&gt;-->
 
-      <button mat-icon-button [matMenuTriggerFor]="themeMenu">
-        <mat-icon>more_vert</mat-icon>
-      </button>
+  <!--&lt;!&ndash;<button mat-icon-button [matMenuTriggerFor]="themeMenu">&ndash;&gt;-->
+  <!--&lt;!&ndash;<mat-icon>more_vert</mat-icon>&ndash;&gt;-->
+  <!--&lt;!&ndash;</button>&ndash;&gt;-->
 
-      <mat-menu #themeMenu x-position="before">
-        <button mat-menu-item (click)="isDarkTheme = !isDarkTheme">Toggle Theme</button>
-      </mat-menu>
+  <!--&lt;!&ndash;<mat-menu #themeMenu x-position="before">&ndash;&gt;-->
+  <!--&lt;!&ndash;<button mat-menu-item (click)="isDarkTheme = !isDarkTheme">Toggle Theme</button>&ndash;&gt;-->
+  <!--&lt;!&ndash;</mat-menu>&ndash;&gt;-->
+  <!--&lt;!&ndash;</mat-toolbar-row>&ndash;&gt;-->
+  <!--&lt;!&ndash;</mat-toolbar>&ndash;&gt;-->
+  <!--&lt;!&ndash;</footer>&ndash;&gt;-->
+  <!--<div>-->
+    <!--<mat-menu #profileMenu="matMenu" id="ic" yPosition="above" [overlapTrigger]="false">-->
+      <!--<hr>-->
+      <!--<button mat-menu-item (click)="toggle()">Personalizza</button>-->
+      <!--<button mat-menu-item routerLink="/triggers">Triggers</button>-->
+      <!--<button mat-menu-item routerLink="/dashboard/modifica-profilo" (click)="sidenav.close()">Modifica Profilo</button>-->
+      <!--<button mat-menu-item>Esci</button>-->
+    <!--</mat-menu>-->
+  <!--</div>-->
+<!--</div>-->
 
-    </mat-toolbar>
-  </footer>
-
-</div>
-
-<div>
-  <mat-menu #profileMenu="matMenu" id="ic" yPosition="above" [overlapTrigger]="false">
-    <mat-icon svgIcon="avatars:{{selectedUser.avatar}}" class="avatarTop"></mat-icon>
-    <hr>
-    <button mat-menu-item>Modifica Profilo</button>
-    <button mat-menu-item>Esci</button>
-  </mat-menu>
-</div>
+<app-home></app-home>

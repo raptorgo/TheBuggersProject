@@ -1,0 +1,32 @@
+<div style="margin-top: 2%; margin-left: 2%; margin-right: 2%">
+  <div *ngIf="!modifyB">
+    <div fxLayout="row">
+      <h1 fxFlex="20%" fxFlex.xs="80%">{{item.avatar}}</h1>
+      <!--{{object}}-->
+      <button fxFlex="5%" fxFlex.xs="20%" mat-button (click)="toggle()"><i class="material-icons">create</i></button>
+    </div>
+    <label fxLayout="row">{{item.details}}</label>
+  </div>
+
+  <div *ngIf="modifyB">
+    <div>
+      <!--style="width: 45%"-->
+      <mat-form-field fxFlex="100%">
+        <input matInput placeholder="Object" [(ngModel)]="item.avatar">
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field fxFlex="100%">
+        <textarea rows="5" matInput placeholder="Description" [(ngModel)]="item.details"></textarea>
+      </mat-form-field>
+    </div>
+    <div>
+      <button mat-button (click)="modify('ok')">
+        <mat-icon>done</mat-icon>
+      </button>
+      <button mat-button (click)="modify('no')">
+        <mat-icon>clear</mat-icon>
+      </button>
+    </div>
+  </div>
+</div>
