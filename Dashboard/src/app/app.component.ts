@@ -35,6 +35,7 @@ export class AppComponent {
     this.aperto= false;
     alert('ciao');
   }
+  selectedSectors = "Verniciatura";
   constructor(private wsService: SocketService, private api: ApiService, iconRegistry: MatIconRegistry, sanitizer: DomSanitizer, private dialog: MatDialog) {
     this.wsService.initSocket();
     // On 'Welcome' message we print 'A USER ENTERED'

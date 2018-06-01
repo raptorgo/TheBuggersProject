@@ -1,5 +1,3 @@
-
-
 <div fxLayout="column" fxFlex [class.dark-theme]="isDarkTheme" [class.candy-theme]="isCandyTheme">
   <mat-toolbar color="primary">
 
@@ -8,15 +6,15 @@
         <!--fxHide="false" fxHide.gt-sm-->
         <mat-icon>menu</mat-icon>
       </button>
-      <span routerLink="./" style="outline: none; cursor: pointer">Nome Azienda</span>
+      <span routerLink="./" style="outline: none; cursor: pointer">The Buggers</span>
       <!-- Filler that pushes the menu button to the end of the toolbar -->
       <span fxFlex style="text-align: center">
         <div id="desktopSettings" class="button-row" *ngIf="isCostumazies">
           <!--(click)="setColor('blue')"-->
-          <button mat-mini-fab (click)="setColor('red')" style="background-color: red"
+          <button mat-mini-fab (click)="setColor('red')" style="background-color: blu"
                   [disabled]="isDarkTheme"></button>
-          <button mat-mini-fab (click)="isCandyTheme = !isCandyTheme" style="background-color: blue"
-                  [disabled]="isDarkTheme"></button>
+          <!--<button mat-mini-fab (click)="isCandyTheme = !isCandyTheme" style="background-color: blue"-->
+                  <!--[disabled]="isDarkTheme"></button>-->
           <button mat-mini-fab (click)="setColor('yellow')" style="background-color: yellow"
                   [disabled]="isDarkTheme"></button>
           <button mat-mini-fab (click)="setColor('green')" style="background-color: green"
@@ -69,36 +67,29 @@
       </mat-card>
       <mat-nav-list style="height: 100%">
         <!--<mat-list style="padding-top: 4%; padding-bottom: 4%;">-->
-          <mat-accordion>
-            <mat-expansion-panel #expe (click)="top()" (click)="expe.close()" [expanded]="false" [hideToggle]="true">
-              <mat-expansion-panel-header class="listItem">
+        <mat-accordion displayMode="flat">
+          <div *ngFor="let user of users">
+            <!--<mat-expansion-panel #expe (click)="top()" (click)="expe.close()" [expanded]="false" [hideToggle]="true">-->
+              <!--<mat-expansion-panel-header class="listItem">-->
+                <!--<mat-panel-title>-->
+                  <!--ciao-->
+                <!--</mat-panel-title>-->
+              <!--</mat-expansion-panel-header>-->
+            <!--</mat-expansion-panel>-->
+            <mat-expansion-panel class="listItem">
+              <mat-expansion-panel-header>
                 <mat-panel-title>
-                  <!--{{users[0].name }}-->
-                  ciao
+                  {{user.name}}
                 </mat-panel-title>
               </mat-expansion-panel-header>
-              <!--<mat-form-field>-->
-                <!--<input matInput placeholder="First name">-->
-              <!--</mat-form-field>-->
+              <mat-list (disableRipple)="false">
+                <mat-list-item routerLink="/dashboard/1" (click)="sidenav.close()">Sezione Verniciatura</mat-list-item>
+                <mat-list-item routerLink="/dashboard/2" (click)="sidenav.close()">Sezione Forni</mat-list-item>
+                <mat-list-item routerLink="/dashboard/3" (click)="sidenav.close()">Sezione Trasportatore</mat-list-item>
+              </mat-list>
             </mat-expansion-panel>
-            <div *ngFor="let user of users">
-              <mat-expansion-panel class="listItem">
-                <mat-expansion-panel-header>
-                  <mat-panel-title>
-                    {{user.name}}
-                  </mat-panel-title>
-                </mat-expansion-panel-header>
-                ciaooooooooo
-              </mat-expansion-panel>
-            </div>
-          </mat-accordion>
-          <!--<mat-list-item class="listItem">Item 1</mat-list-item>-->
-          <!--<mat-divider></mat-divider>-->
-          <!--<mat-list-item class="listItem">Item 2</mat-list-item>-->
-          <!--<mat-divider></mat-divider>-->
-          <!--<mat-list-item class="listItem">Item 3</mat-list-item>-->
-        <!--</mat-list>-->
-
+          </div>
+        </mat-accordion>
         <mat-card>
           <div>
             <h5>© 2018, The Bugger</h5>
@@ -141,3 +132,5 @@
     </mat-menu>
   </div>
 </div>
+
+<!--<app-home></app-home>-->

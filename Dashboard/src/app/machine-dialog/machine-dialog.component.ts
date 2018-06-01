@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import {MatDialogRef} from '@angular/material';
+import { Component, OnInit, Inject } from '@angular/core';
+import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
 
 @Component({
   selector: 'app-machine-dialog',
@@ -10,7 +10,7 @@ export class MachineDialogComponent implements OnInit {
   sensorView: boolean;
   infoView: boolean;
   segnalView: boolean;
-  constructor(public dialogRef: MatDialogRef<MachineDialogComponent>) {
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any, public dialogRef: MatDialogRef<MachineDialogComponent>) {
     this.sensorView = true;
     this.infoView = false;
     this.segnalView = false;

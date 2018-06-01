@@ -11,11 +11,11 @@ export class InfoDialogComponent implements OnInit {
   modifyB = false;
   objectB;
   descriptionB;
-  item;
+  // item;
   constructor() {
     this.objectB = this.object;
     this.descriptionB = this.description;
-    this.item = JSON.parse(localStorage.getItem('item'));
+    // this.item = JSON.parse(localStorage.getItem('item'));
   }
   ngOnInit() {
   }

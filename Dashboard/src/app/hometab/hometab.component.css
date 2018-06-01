@@ -1,0 +1,77 @@
+.divForm{
+  margin: 5% 33%;
+  padding: 2%;
+  width: 33%;
+}
+
+.login{
+  text-align: center;
+}
+
+.inputForm{
+  width: 100%;
+}
+.forgotPassword{
+  display: inline-block;
+  margin-left: 48%;
+  color: red;
+  font-size: 84%;
+}
+
+.buttonLogin{
+  font-size: 79%;
+  color: white;
+  font-weight: bold;
+}
+
+.center{
+  text-align: center;
+}
+
+.divMezzo{
+  background-color: #f9fcfa;
+  margin: 19px -30px 0 -30px;
+  padding: 1% 0px 0px 0px;
+}
+
+.buttonTwitter{
+  padding: 0px;
+  background-color: aqua;
+}
+
+.buttonFacebook{
+  padding: 0px;
+  background-color: dodgerblue;
+}
+
+.buttonGoogle {
+  padding: 0px;
+  background-color: red;
+}
+
+.linea{
+  margin: 5% 8% 5% 8%;
+}
+
+.block{
+  display: inline-block;
+}
+
+.red{
+  color: red;
+}
+
+.buttonRegister{
+  display: block;
+  margin: 0 auto;
+}
+.finale {
+  background-color: crimson;
+  height: 58px;
+  color: white;
+  text-align: center;
+  padding-top: 19px;
+}
+
+
+

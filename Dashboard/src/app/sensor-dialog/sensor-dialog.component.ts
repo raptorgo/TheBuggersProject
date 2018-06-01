@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {SocketService} from '../services/socket.service';
 import {ViewChild} from '@angular/core';
 import { ChartErrorEvent } from 'ng2-google-charts';
+import {ApiService} from '../services/api.service';
 
 @Component({
   selector: 'app-sensor-dialog',
@@ -10,7 +11,9 @@ import { ChartErrorEvent } from 'ng2-google-charts';
 })
 export class SensorDialogComponent implements OnInit {
   @ViewChild('cchart') cchart;
-
+  @ViewChild('cchart1') cchart1;
+  @Input() id: number;
+  lastFiveData = new Array();
   selected: string;
   fSelected: string[] = new Array();
   public barChartOptions: any = {
@@ -26,13 +29,13 @@ export class SensorDialogComponent implements OnInit {
   public columnChartData2:any =  {
     chartType: 'ColumnChart',
     dataTable: [
-      ['Country', 'Performance', 'Profits'],
-      ['Germany', 0, 0],
-      ['USA', 0, 0],
-      ['Brazil', 0, 0],
-      ['Canada', 0, 0],
-      ['France', 0, 0],
-      ['RU', 0, 0]
+      ['Country', 'Performance'],
+      ['Germany', 0],
+      ['USA', 0],
+      ['Brazil', 0],
+      ['Canada', 0],
+      ['France', 0],
+      ['RU', 0]
     ],
     options: {
       title: 'Countries',
@@ -52,13 +55,18 @@ export class SensorDialogComponent implements OnInit {
     }
     this.cchart.redraw();
   }
-  public pieChartData1: any = {
+  public gaugeChartData: any = {
     chartType: 'Gauge',
     dataTable: [
       ['Label', 'Value'],
-      ['Temperatura', 60]
+      ['', 400]
     ],
     options: {
+      redFrom: 550, redTo: 600,
+      yellowFrom: 500, yellowTo: 550,
+      minorTicks: 2,
+      min: 400,
+      max: 600,
       animation: {
         duration: 1000,
         easing: 'out'},
@@ -81,89 +89,48 @@ export class SensorDialogComponent implements OnInit {
   public error(event: ChartErrorEvent) {
     console.log(event)
   }
-  //line chart
-  // ['January', 'February', 'March', 'April', 'May', 'June', 'July']
-  public lineChartLabels: Array<any> = ['', 'esigenza', '', 'info', '', 'acquisto', '', 'attesa', '', 'fruizione', '', 'post'];
-  public lineChartOptions: any = {
-    scaleShowVerticalLines: false,
-    maintainAspectRatio: false,
-    responsive: true
-  };
-  public lineChartColors: Array<any> = [
-    { // grey
-      backgroundColor: 'rgba(148,159,177,0.2)',
-      borderColor: 'rgba(148,159,177,1)',
-      pointBackgroundColor: 'rgba(148,159,177,1)',
-      pointBorderColor: '#fff',
-      pointHoverBackgroundColor: '#fff',
-      pointHoverBorderColor: 'rgba(148,159,177,0.8)'
-    },
-    { // dark grey
-      backgroundColor: 'rgba(77,83,96,0.2)',
-      borderColor: 'rgba(77,83,96,1)',
-      pointBackgroundColor: 'rgba(77,83,96,1)',
-      pointBorderColor: '#fff',
-      pointHoverBackgroundColor: '#fff',
-      pointHoverBorderColor: 'rgba(77,83,96,1)'
-    },
-    { // grey
-      backgroundColor: 'rgba(148,159,177,0.2)',
-      borderColor: 'rgba(148,159,177,1)',
-      pointBackgroundColor: 'rgba(148,159,177,1)',
-      pointBorderColor: '#fff',
-      pointHoverBackgroundColor: '#fff',
-      pointHoverBorderColor: 'rgba(148,159,177,0.8)'
-    }
-  ];
-  public lineChartLegend: boolean = true;
-  public lineChartType: string = 'line';
-  //pie chart
-  public pieChartOptions: any = {
-    scaleShowVerticalLines: false,
-    maintainAspectRatio: false,
-    responsive: true
-  };
-  public pieChartLabels: string[] = ['Download Sales', 'In-Store Sales'];
-  public pieChartData: number[] = [300, 500];
-  public pieChartType: string = 'pie';
-
-  constructor(private socket: SocketService) {
-    this.selected = 'Line Chart';
-    this.fSelected[0] = 'Last Day';
+  lineData = new Array();
+  lineData1 = new Array();
+  machineId;
+  constructor(private socket: SocketService, private api: ApiService) {
+    // this.machineId = JSON.parse(localStorage.getItem('item'));
   }
   ready(event) {
+  }
+  redrawLineChart () {
+  }
+  // setInterval (function(){this.redrawLineChart()}, 3000);
+  sensorList = new Array();
+  ngOnInit() {
+    this.api.getCompanySensor(this.id).subscribe((data: Object[]) => {
+      this.sensorList = data;
+    });
+    console.log("top top" + this.id);
+    this.api.getSensorData(this.id).subscribe((data: Object[]) => {
+      this.lineData = data;
+      console.log(this.lineData);
+
+      this.lineChartData = {
+        chartType: 'LineChart',
+        dataTable: this.lineData,
+        options: {
+          height: 420,
+          title: 'Company Performance'
+        }
+      };
+
+    });
     this.socket.onMessage().subscribe((data: any) => {
+      if (this.lastFiveData.length < 5) {
+        this.lastFiveData.splice(0, 0, data[0]);
+      } else if (this.lastFiveData.length === 5) {
+        this.lastFiveData.splice(0, 0, data[0]);
+        this.lastFiveData.splice(5, 1);
+      }
       let dataTable = this.cchart.wrapper.getDataTable();
       dataTable.setValue(0, 1, data[0].value);
       this.cchart.redraw();
-      // this.pieChartData1.dataTable = Object.create(this.pieChartData1.dataTable);
-      // this.pieChartData1.dataTable[0][1] = 25
-      // this.cchart.redraw();
-      console.log('Old = ' + data);
-      console.log('New ' + data[0].value);
     })
   }
-
-  sensorList = ['Temperatura', 'Umidità'];
-
-  ngOnInit() {
-
-  }
-
-
-
-  lineChartData = {
-    chartType: 'LineChart',
-    dataTable: [
-      ['Year', 'Sales', 'Expenses'],
-      ['2004', 1000, 400],
-      ['2005', 1170, 460],
-      ['2006', 660, 1120],
-      ['2007', 1030, 540]
-    ],
-    options: {
-      height: 420,
-      title: 'Company Performance'
-    }
-  };
+  lineChartData: any;
 }
