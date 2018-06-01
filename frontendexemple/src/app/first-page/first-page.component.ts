@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {}
+
 
 @Component({
   selector: 'app-first-page',
@@ -14,10 +14,10 @@ export class FirstPageComponent implements OnInit {
     console.log('tua mamma puttana');
   }
 
-  var particleJS: any;
-
-  particlesJS.load('particlesJs', 'assets/configParticle.json', function(){
-    console.log('particles.json loaded...')
-  });
+  // var particleJS: any;
+  //
+  // particlesJS.load('particlesJs', 'assets/configParticle.json', function(){
+  //   console.log('particles.json loaded...')
+  // });
 
 }

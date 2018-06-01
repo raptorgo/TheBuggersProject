@@ -8,12 +8,10 @@ export class SocketService {
   private socket;
 
   public initSocket(): void {
-    console.log("entra");
-    this.socket = io('http://192.168.101.71:3000/');
-    this.socket.emit('room', {room_name: 'company1'});
+    this.socket = io('http://192.168.101.71:3000/company1');
     // this.socket = io('http://192.168.137.254:3000');
     this.onMessage().subscribe((data) => {
-      // console.log("dato ricevuto " + JSON.stringify(data));
+      console.log("dato ricevuto " + JSON.stringify(data));
     })
     // this.send({data: "ciaoooo"});
   }
