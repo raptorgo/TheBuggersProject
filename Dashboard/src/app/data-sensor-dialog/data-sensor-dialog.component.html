@@ -35,7 +35,7 @@
   <!--</canvas>-->
 <!--</div>-->
 <div style="margin-top: 1%">
-  Ultimo Dato :  {{lineData[lineData.length-1][1]}}°C
+  Ultimo Dato :  {{lineData[lineData?.length-1][1]}}°C
   <!--<google-chart *ngIf="group.value == 'Line Chart'" #cchart1 [data]="lineChartData"></google-chart>-->
   <google-chart #cchart1 [data]="lineChartData"></google-chart>
 

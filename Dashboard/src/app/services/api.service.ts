@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 
-const URL = 'http://192.168.137.31:3000/api/v1';
+const URL = 'http://192.168.101.111:3000/api/v1';
 // const URL = 'http://192.168.101.71:3000/api/v1';
 
 @Injectable()

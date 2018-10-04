@@ -9,8 +9,8 @@ export class SocketService {
 
   public initSocket(): void {
     console.log("entra");
-    this.socket = io('http://192.168.101.71:3000/');
-    this.socket = io('http://192.168.137.31:3000/');
+    this.socket = io('http://192.168.101.111:3000/');
+    //this.socket = io('http://192.168.137.31:3000/');
 
     this.socket.emit('room', {room_name: 'company1'});
     // this.socket = io('http://192.168.137.254:3000');

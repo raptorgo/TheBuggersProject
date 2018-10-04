@@ -65,7 +65,7 @@
           </button>
         </div>
       </mat-card>
-      <mat-nav-list style="height: 100%">
+      <mat-nav-list>
         <!--<mat-list style="padding-top: 4%; padding-bottom: 4%;">-->
         <mat-accordion displayMode="flat">
           <div *ngFor="let user of users">
@@ -90,12 +90,17 @@
             </mat-expansion-panel>
           </div>
         </mat-accordion>
-        <mat-card>
-          <div>
-            <h5>© 2018, The Bugger</h5>
-          </div>
-        </mat-card>
+        <!--<mat-card>-->
+          <!--<div>-->
+            <!--<h5>© 2018, The Bugger</h5>-->
+          <!--</div>-->
+        <!--</mat-card>-->
       </mat-nav-list>
+      <div style="margin-top: auto">
+        <mat-card style="position: fixed; bottom: 0px; width: 100%">
+          <h5>© 2018, The Bugger</h5>
+        </mat-card>
+      </div>
     </mat-sidenav>
     <div fxLayout="column" (swipeleft)="sidenav.close()" (swiperight)="sidenav.open()">
       <router-outlet></router-outlet>
