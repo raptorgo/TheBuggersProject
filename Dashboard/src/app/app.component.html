@@ -32,9 +32,9 @@
     </mat-toolbar-row>
   </mat-toolbar>
 
-  <mat-sidenav-container fxFlex (swipeleft)="sidenav.close()" (swiperight)="sidenav.open()">
-
-    <mat-sidenav id="sidenav" mode="side" #sidenav opened (swipeleft)="sidenav.close()" (swiperight)="sidenav.open()">
+  <mat-sidenav-container style="width: 100%" fxFlex (swipeleft)="sidenav.close()" (swiperight)="sidenav.open()">
+    <!--mode="side"-->
+    <mat-sidenav id="sidenav" [mode]="sidenavaMode"  #sidenav opened (swipeleft)="sidenav.close()" (swiperight)="sidenav.open()">
 
       <div id="mobileSettings" class="button-row" *ngIf="isCostumazies">
         <!--(click)="setColor('blue')"-->
@@ -58,14 +58,14 @@
 
       <mat-card>
         <div>
-          <h2>Benvenuto Luca!</h2>
+          <h2>Benvenuto Operatore 1!</h2>
           <span fxFlex="40%;"></span>
           <button mat-mini-fab color="primary" [matMenuTriggerFor]="profileMenu" id="buttonProfileMobile">
             <i class="material-icons">settings</i>
           </button>
         </div>
       </mat-card>
-      <mat-nav-list>
+      <mat-nav-list style="height: 100%">
         <!--<mat-list style="padding-top: 4%; padding-bottom: 4%;">-->
         <mat-accordion displayMode="flat">
           <div *ngFor="let user of users">
@@ -83,9 +83,10 @@
                 </mat-panel-title>
               </mat-expansion-panel-header>
               <mat-list (disableRipple)="false">
-                <mat-list-item routerLink="/dashboard/1" (click)="sidenav.close()">Sezione Verniciatura</mat-list-item>
-                <mat-list-item routerLink="/dashboard/2" (click)="sidenav.close()">Sezione Forni</mat-list-item>
-                <mat-list-item routerLink="/dashboard/3" (click)="sidenav.close()">Sezione Trasportatore</mat-list-item>
+                <!--<mat-list-item routerLink="/dashboard/1" (click)="sidenav.close()">Sezione Verniciatura</mat-list-item>-->
+                <mat-list-item routerLink="/dashboard/1" (click)="closeSideNav()">Sezione Verniciatura</mat-list-item>
+                <mat-list-item routerLink="/dashboard/2" (click)="closeSideNav()">Sezione Forni</mat-list-item>
+                <mat-list-item routerLink="/dashboard/3" (click)="closeSideNav()">Sezione Trasportatore</mat-list-item>
               </mat-list>
             </mat-expansion-panel>
           </div>

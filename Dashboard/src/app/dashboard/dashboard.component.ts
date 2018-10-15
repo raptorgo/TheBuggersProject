@@ -1,15 +1,17 @@
 import {Component, Input, OnInit, ViewChild} from '@angular/core';
-import {MatDialog} from '@angular/material';
+import {MatDialog, MatSnackBar} from '@angular/material';
 import {SortablejsOptions} from 'angular-sortablejs';
 import {MachineDialogComponent} from '../machine-dialog/machine-dialog.component';
 import {SocketService} from '../services/socket.service';
 import {ActivatedRoute, Route} from '@angular/router';
 import {ApiService} from '../services/api.service';
+import {Web3Service} from "../services/web3.service";
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css']
+  styleUrls: ['./dashboard.component.css'],
+  providers: [Web3Service]
 })
 export class DashboardComponent implements OnInit {
   @ViewChild('cchart') cchart;
@@ -57,6 +59,15 @@ export class DashboardComponent implements OnInit {
   sortableEnabled: SortablejsOptions = {
     disabled: false
   };
+
+  saveToBlockchain(item) {
+    this.web3.storeHash(item).then((hash) => {
+      this.openSnackBar("Dato Salvato su BlockChain: " + hash,'');
+    }).catch((error) => {
+      this.openSnackBar('Errore nel Salvataggio','');
+    }  )
+  }
+
   toggle() {
     if(this.sort) {
       this.sort = false;
@@ -99,17 +110,22 @@ export class DashboardComponent implements OnInit {
   // trackByFn(index, item) {
   //   return index;
   // }
+
   lastFiveData = new Array();
   constructor(private dialog: MatDialog,
               private socket: SocketService,
               private route: ActivatedRoute,
-              private api: ApiService) {
+              private api: ApiService,
+              private web3: Web3Service,
+              public snackBar: MatSnackBar
+             ) {
     this.route.params.subscribe(params => {
       this.id = +params['id']; // (+) converts string 'id' to a number
       this.api.getCompanySections(this.id).subscribe((data: Object[]) => {
         this.sections = data;
         console.log(data);
       });
+      this.web3.init().catch(() => console.log());
     });
     this.sort = this.sortable;
     this.socket.onMessage().subscribe((data: any) => {
@@ -144,6 +160,12 @@ export class DashboardComponent implements OnInit {
   id: number;
   ngOnInit() {
 
+  }
+
+  openSnackBar(message: string, action: string) {
+    this.snackBar.open(message, action, {
+      duration: 2000,
+    });
   }
 
 }

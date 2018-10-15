@@ -38,6 +38,7 @@ import {
   MatSlideToggleModule,
   MatGridListModule,
   MatTabsModule,
+  MatSnackBarModule,
   MatToolbarModule, MatButtonToggle, MatButtonToggleModule, MatButtonToggleGroup, MatAccordion,
 } from '@angular/material';
 
@@ -123,6 +124,8 @@ export class MyHammerConfig extends HammerGestureConfig  {
     MatToolbarModule,
     MatGridListModule,
     MatButtonToggleModule,
+    MatSnackBarModule,
+
     // Flex-layout
     FlexLayoutModule,
     MatButtonToggleModule,

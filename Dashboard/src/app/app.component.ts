@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, ViewChild} from '@angular/core';
 import {MatIconRegistry, MatDialog} from '@angular/material';
 import {DomSanitizer} from '@angular/platform-browser';
 
@@ -14,6 +14,8 @@ import {ApiService} from './services/api.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  @ViewChild('sidenav') sidenav;
+
   isAdmin;
   sectors: Object;
   users: Object;
@@ -24,6 +26,7 @@ export class AppComponent {
   isCostumazies = false;
   sort = false;
   messages: Subject<any>;
+  sidenavaMode;
 
   // Our simplified interface for sending
   // messages back to our socket.io server
@@ -47,6 +50,13 @@ export class AppComponent {
       this.users = data;
       this.selectedUser = this.users[0];
     });
+
+    if(window.innerWidth < 600) {
+      this.sidenavaMode = "over";
+    } else {
+      this.sidenavaMode = "side";
+    }
+
     // panel.closeAll();
   }
   themeColor;
@@ -87,5 +97,12 @@ export class AppComponent {
     }
     return "nDarkBtn";
   }
+
+  closeSideNav() {
+    if(window.innerWidth < 600) {
+      this.sidenav.close();
+    }
+  }
+
   selectedBtn = "home";
 }

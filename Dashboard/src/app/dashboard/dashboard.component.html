@@ -32,8 +32,9 @@
             </div>
             <div>
               <p *ngFor="let item of lastFiveData">
-                    Ora: {{item.timestamp|amDateFormat:'HH:mm:ss'}} - {{item.value}} mAh <br>
+                    Ora: {{item.timestamp|amDateFormat:'HH:mm:ss'}} - {{item.value}} mAh  <button mat-raised-button color="primary" (click)="saveToBlockchain(item)" style="margin-left: 10px">Salva su Blockchain</button><br>
               </p>
+
             </div>
           </div>
         </div>
@@ -44,7 +45,7 @@
 
 
 <div>
-  <h4 class="machineTitle">Le Tue Macchine</h4>
+  <h4 class="machineTitle">Impianto {{sections.name}}</h4>
   <span></span>
   <span fxFlex></span>
   <button mat-button class="orderButton" (click)="toggle()">Sort
@@ -55,7 +56,7 @@
 <div [ngClass]="{'sortEnable':sort==true}" [sortablejs]="sections" [sortablejsOptions]="getSortableOptions()"
      fxLayout="row" fxLayout.xs="column" fxLayoutWrap="wrap" class="marginContainerCard">
   <div fxFlex.gt-xs="100%" fxFlex.xs="100%" [fxFlex.gt-md]="100/3" [fxFlex.gt-sm]="100/2"
-       *ngFor="let s of sections; let asd = index">
+       *ngFor="let s of sections.parts; let asd = index">
     <mat-card fxFlex.xs="100%" class="marginCard" [ngClass]="{'sortEnableCard':sort==true}" (click)="openDialog(s.id)">
       <mat-card-content>
         {{s.name}}
